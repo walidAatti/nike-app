@@ -21,7 +21,7 @@ const CustomersReviews = () => {
       </div>
 
         {/* customers reviews */}
-        <div className="mt-25 flex justify-between max-md:flex-col max-md:gap-y-20 max-md:items-center ">
+        <div className="mt-25 max-md:mt-20 flex justify-between max-md:flex-col max-md:gap-y-20 max-md:items-center ">
           {reviews.map((review, index) => (
             <div key={index} className="w-2/5 max-md:w-full flex flex-col items-center text-center">
               <img  

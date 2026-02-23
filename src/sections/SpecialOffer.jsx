@@ -7,7 +7,7 @@ const SpecialOffer = () => {
     <div className="flex flex-col-reverse lg:flex-row justify-between lg:gap-15 items-center">
       {/* offer photo */}
       <div>
-        <img src={offer} alt= "offer" height={687} width={773}/>
+        <img src={offer} alt= "offer" height={687} width={773} className=""/>
       </div>
 
       {/* offer description */}
@@ -29,18 +29,18 @@ const SpecialOffer = () => {
           unique desires, surpassing the loftiest expectations. 
           Your journey with us is nothing short of exceptional.
         </p>
-        <div className="flex gap-4 ">
+        <div className="flex gap-4 max-sm:items-center">
 
             {/* shop now */}
             <Link to={'/products'}
-              className="w-fit whitespace-nowrap flex gap-4 rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors">
+              className="w-fit whitespace-nowrap flex gap-4 rounded-full py-3 px-6 max-sm:px-7 text-lg text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors">
                 Shop now
               <img src={arrowRight} alt="arrow"/>
             </Link>
 
             {/* learn more */}
             <Link to={'/products'}
-              className="w-fit rounded-full py-3 px-6 text-lg font-montserrat border border-slate-gray hover:outline outline-gray-500">
+              className="w-fit whitespace-nowrap rounded-full py-3 px-6 max-sm:px-7 text-lg font-montserrat border border-slate-gray hover:outline outline-gray-500">
                 Learn More
             </Link>
 

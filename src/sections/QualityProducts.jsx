@@ -5,7 +5,7 @@ const QualityProducts = () => {
   return (
     <div className="flex justify-between items-center max-lg:flex-col">
       {/* left side */}
-      <div className="lg:w-2/5 w-3/5">
+      <div className="lg:w-2/5 w-full">
         <p className="font-palanquin font-bold text-5xl leading-13">We Provide You 
         <span className="text-coral-red "> Super Quality </span> 
           Shoes

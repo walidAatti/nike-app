@@ -14,7 +14,7 @@ const Hero = () => {
             {/* First Section */}
             <div className="xl:w-2/5 padding-x flex flex-col items-start justify-center pt-28">
                 <p className=" font-montserrat text-coral-red text-xl">Our Summer Collections</p>
-                <div className="capitalize text-8xl font-palanquin font-bold max-sm:text-7xl relative z-10 mt-11 lg:leading-30 max-lg:leading-25">
+                <div className="capitalize text-8xl font-palanquin font-bold max-sm:text-7xl relative z-10 mt-11 lg:leading-30 max-lg:leading-25 max-md:leading-20">
                     <span className="relative z-10 xl:whitespace-nowrap pr-10 py-4 xl:bg-white">The New arrival </span>
                     <br />
                     <span className="text-coral-red">Nike</span> shoes
