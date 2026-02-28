@@ -52,11 +52,6 @@
 }
 
 @layer components {
-  .max-container {
-    max-width: 1440px;
-    margin-inline: auto;
-  }
-
   .input {
     @apply
       text-base leading-normal pl-5 
@@ -103,6 +98,14 @@
   }
   .bg-card {
     background-image: var(--bg-card);
+  }
+  /* hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;     
+    scrollbar-width: none;  
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;   
   }
 
 }

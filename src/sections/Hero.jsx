@@ -14,8 +14,8 @@ const Hero = () => {
             {/* First Section */}
             <div className="xl:w-2/5 padding-x flex flex-col items-start justify-center pt-28">
                 <p className=" font-montserrat text-coral-red text-xl">Our Summer Collections</p>
-                <div className="capitalize text-8xl font-palanquin font-bold max-sm:text-7xl relative z-10 mt-11 lg:leading-30 max-lg:leading-25 max-md:leading-20">
-                    <span className="relative z-10 xl:whitespace-nowrap pr-10 py-4 xl:bg-white">The New arrival </span>
+                <div className="capitalize text-8xl font-palanquin font-bold max-sm:text-7xl relative z-1 mt-11 lg:leading-30 max-lg:leading-25 max-md:leading-20">
+                    <span className="relative z-1 xl:whitespace-nowrap pr-10 py-4 xl:bg-white">The New arrival </span>
                     <br />
                     <span className="text-coral-red">Nike</span> shoes
                 </div>
@@ -25,7 +25,7 @@ const Hero = () => {
                     Discover stylish Nike arrivals, quality comfort, 
                     and innovation for your active life</p>
 
-                <Link to="/products" 
+                <Link to="/nike-app/products" 
                     className="mt-10 rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red flex gap-4 hover:bg-[#e75747] transition-colors">
                         Shop now
                         <img src={arrowRight} alt="arrow" />

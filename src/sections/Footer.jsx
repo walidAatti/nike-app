@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div>
 
-            <div className="grid  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-end max-xl:justify-items-start max-xl:gap-y-15 max-sm:gap-x-5">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-end max-xl:justify-items-start max-xl:gap-y-15 max-sm:gap-x-5">
 
             <div className="space-y-5 max-xl:col-span-full">
                 <img src={footerLogo} alt="nike logo" className="w-37.5"/>
@@ -42,8 +42,9 @@ const Footer = () => {
                     >
                         <p className="text-white font-semibold mb-5 text-2xl">{footerCol.title}</p>
 
-                        {footerCol.links.map(link => (
+                        {footerCol.links.map((link,index) => (
                             <a 
+                                key={index}
                                 href={link.link} 
                                 className="underline-offset-6 hover:underline hover:text-gray-200"
                             >

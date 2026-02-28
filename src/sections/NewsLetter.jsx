@@ -18,7 +18,9 @@ const NewsLetter = () => {
                 <input 
                     type="submit" 
                     value="Sign Up" 
-                    className="absolute right-2 bottom-1/2 sm:translate-y-1/2 rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors cursor-pointer max-sm:static max-sm:w-full max-sm:mt-3"
+                    className="absolute right-2 bottom-1/2 sm:translate-y-1/2 rounded-full py-3 px-6 text-lg text-white 
+                    font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors cursor-pointer 
+                    max-sm:static max-sm:w-full max-sm:mt-3"
                 />
 
             </form>

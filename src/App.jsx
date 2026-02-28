@@ -1,49 +1,40 @@
-import './index.css'
-import {Nav, PopularProducts, QualityProducts, Services, SpecialOffer, CustomersReviews, NewsLetter, Footer, Hero} from './sections/export';
-
-function App() {
-
-  return (
-    <main>
-      
-      <Nav />
-
-      <section className='padding-b' id='home'> {/* xl:padding-l wide:padding-r */}
-        <Hero />
-      </section>
-
-      <section className='padding' id="products">
-        <PopularProducts />
-      </section>
-
-      <section className='padding'>
-        <QualityProducts />
-      </section>
-
-      <section className='padding'>
-        <Services />
-      </section>
-
-      <section className='padding'>
-        <SpecialOffer />
-      </section>
-
-      <section className='padding bg-pale-blue' id='about-us'>
-        <CustomersReviews />
-      </section>
+import { Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import Products from "./pages/Products"
+import ProductDetail from "./components/ProductDetail"
+import { useEffect, useState } from "react"
 
 
-      <section className='padding-x py-16 sm:py-32'>
-        <NewsLetter />
-      </section>
+const App = () => {
 
-      <section className='bg-black pb-8 padding-t padding-x' id='contact-us'>
-        <Footer />
-      </section>
+    const [sneakers, setSneakers] = useState([]);
+    const [originalSneakers, setOriginalSneakers] = useState([]);
+
+    useEffect(() => {
+    const fetchSneakers = async () => {
+        
+        try {
+            const response = await fetch("/nike-app/sneakers.json")
+            const snkrs = await response.json()
+            setSneakers(snkrs.slice(0,100));
+            setOriginalSneakers(snkrs.slice(0,100));
+
+        } catch (error) {
+            console.log("The error is: " + error)
+        }
+    }
+
+    fetchSneakers();
+
+    }, [])
     
-
-    </main>
-  )
+    return (
+        <Routes>
+            <Route path="/nike-app/" element ={<Home />} />
+            <Route path="/nike-app/products" element ={<Products sneakers = {sneakers} originalSneakers = {originalSneakers} setSneakers={setSneakers}/>} />
+            <Route path="/nike-app/products/:id" element ={<ProductDetail sneakers = {sneakers}/>} />
+        </Routes>
+    )
 }
 
 export default App
