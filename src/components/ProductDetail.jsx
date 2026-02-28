@@ -64,9 +64,9 @@ const ProductDetail = ({sneakers}) => {
             </div>
 
                 {/* left side */}
-                <div className='flex flex-col w-full '>
+                <div className='flex flex-col w-full'>
 
-                    <div className='border w-full flex justify-between items-center p-2 max-sm:p-1 rounded-2xl border-gray-400 '>
+                    <div className='border w-full flex justify-between items-center p-2 max-sm:p-1 rounded-2xl border-gray-400 aspect-video'>
                         <button 
                             onClick={prev}
                             className='font-palanquin p-1 md:p-3.5 
@@ -74,7 +74,9 @@ const ProductDetail = ({sneakers}) => {
                                 <GoChevronLeft />
                         </button>
                         
-                        <img src={currentPhoto} alt= "Sneaker"  height={300} className='max-w-4/5  object-cover relative -z-10'/>
+                        <img 
+                            src={currentPhoto} 
+                            alt= "Sneaker" height={300} className='max-w-4/5 object-cover relative -z-10'/>
 
                         <button 
                             onClick={next}
@@ -94,16 +96,16 @@ const ProductDetail = ({sneakers}) => {
                                     tabIndex={0}
                                     onClick={() => {
                                         setCurrentIndex(index)
-                                        console.log(currentIndex)
                                     }}
-                                    className={`border p-2 rounded-xl ${index === currentIndex ? "border-2 border-coral-red" : "border-gray-300 hover:border-gray-300 hover:border-2" } transition cursor-pointer`}>
-                                    <img src={photo} alt="sneaker photo" className='max-md:w-60'/>
+                                    className={`border grow p-1 rounded-xl 
+                                        ${index === currentIndex ? "border-2 border-coral-red" : "border-gray-300 hover:border-gray-300 hover:border-2" } 
+                                            transition cursor-pointer`}>
+                                    <img src={photo} alt="sneaker photo" className='w-full max-h-30 object-contain aspect-square'/>
                                 </div>
                             ))
                         }
-                        
-
                     </div>
+
                 </div>
 
                 {/* right side*/}

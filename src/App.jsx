@@ -16,8 +16,8 @@ const App = () => {
         try {
             const response = await fetch("/nike-app/sneakers.json")
             const snkrs = await response.json()
-            setSneakers(snkrs.slice(0,100));
-            setOriginalSneakers(snkrs.slice(0,100));
+            setSneakers(snkrs.slice(0,200));
+            setOriginalSneakers(snkrs.slice(0,200));
 
         } catch (error) {
             console.log("The error is: " + error)

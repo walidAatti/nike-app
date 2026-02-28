@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Sorting from '../components/Sorting';
 import Pagination from '../components/Pagination';
 import Loader from '../components/Loader';
+import ProductList from '../components/ProductList';
 
 const Products = ({sneakers, setSneakers, originalSneakers}) => {
     
@@ -69,13 +70,10 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                         </div>
                     </div>
 
+                    {/* Product List */}
+                    <ProductList sneakers={filteredSneakers} isPriceSorted={isPriceSorted}/>
 
-                    {/* SNEAKERS LIST */}
-                    {filteredSneakers.map( sneaker =>
-                        <Link key={sneaker.id} to ={`/nike-app/products/${sneaker.id}`}> 
-                            <ProductCard sneaker={sneaker} isPriceSorted={isPriceSorted}/>
-                        </Link>
-                    )}
+
                     {/* Pagination */}
                     {/* <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/> */}
 
