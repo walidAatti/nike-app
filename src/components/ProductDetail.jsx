@@ -15,17 +15,13 @@ import NavSearch from './NavSearch';
 
 
 const ProductDetail = ({sneakers}) => {
+    
 
-    // loaded Photos
-    const [PhotosLoaded, setPhotosLoaded] = useState(0);
     const {id} = useParams()
-    // for slider
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // stay at the top 0,0
     useEffect(() => {
         window.scrollTo(0, 0);
-        
     }, [id]);
 
     // description
@@ -39,17 +35,11 @@ const ProductDetail = ({sneakers}) => {
         return <Loader />
     }
 
+    
+    
     const price = sneaker.avg_price.toFixed(2)
     const sneakerPhotos = [sneaker.gallery_360[0],sneaker.gallery_360[4],sneaker.gallery_360[25],sneaker.gallery_360[19]];
     const currentPhoto = sneakerPhotos[currentIndex];
-
-    // load sneaker photos
-    const handleLoad = () => {
-        setPhotosLoaded((prev) => prev + 1)
-    }
-
-    // for checking all images
-    const AllImagesLoaded = PhotosLoaded === sneakerPhotos.length;
 
     const next = () => setCurrentIndex(prev => prev < sneakerPhotos.length - 1 ? prev + 1 : prev = 0);
     const prev = () => setCurrentIndex(prev => prev > 0 ? prev - 1 : prev = sneakerPhotos.length - 1);
@@ -73,12 +63,9 @@ const ProductDetail = ({sneakers}) => {
                 <Link to={`/nike-app/products/${id}`} className='hover:underline underline-offset-[1.5px]'>{sneaker.brand}</Link>
             </div>
 
-                {AllImagesLoaded ? (
-                <> 
                 {/* left side */}
                 <div className='flex flex-col w-full '>
-                
-                
+
                     <div className='border w-full flex justify-between items-center p-2 max-sm:p-1 rounded-2xl border-gray-400 '>
                         <button 
                             onClick={prev}
@@ -87,13 +74,7 @@ const ProductDetail = ({sneakers}) => {
                                 <GoChevronLeft />
                         </button>
                         
-                        <img 
-                            src={currentPhoto} 
-                            onLoad={handleLoad} 
-                            alt= "Sneaker"  
-                            height={300} 
-                            className='max-w-4/5  object-cover relative -z-10'
-                        />
+                        <img src={currentPhoto} alt= "Sneaker"  height={300} className='max-w-4/5  object-cover relative -z-10'/>
 
                         <button 
                             onClick={next}
@@ -113,6 +94,7 @@ const ProductDetail = ({sneakers}) => {
                                     tabIndex={0}
                                     onClick={() => {
                                         setCurrentIndex(index)
+                                        console.log(currentIndex)
                                     }}
                                     className={`border p-2 rounded-xl ${index === currentIndex ? "border-2 border-coral-red" : "border-gray-300 hover:border-gray-300 hover:border-2" } transition cursor-pointer`}>
                                     <img src={photo} alt="sneaker photo" className='max-md:w-60'/>
@@ -123,11 +105,6 @@ const ProductDetail = ({sneakers}) => {
 
                     </div>
                 </div>
-                </>
-                ):(
-                    <Loader />
-                ) 
-                }
 
                 {/* right side*/}
                 <div className='p-4 max-md:p-0'>
@@ -182,7 +159,6 @@ const ProductDetail = ({sneakers}) => {
                         </div>
                         <p className={`font-montserrat pb-2 text-slate-gray ${isOpened ? "block" : "hidden"}`}>{sneaker.description}</p>
                     </div>
-                    
 
 
                     {/* Market statistics */}
