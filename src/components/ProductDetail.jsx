@@ -16,10 +16,10 @@ import NavSearch from './NavSearch';
 
 const ProductDetail = ({sneakers}) => {
     
-
-    const {id} = useParams()
+    const {brand, id} = useParams();
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
@@ -29,15 +29,17 @@ const ProductDetail = ({sneakers}) => {
     // market statistics
     const [isMarketOpened, setIsMarketOpened] = useState(true)
 
-
+    // fins sneaker
     const sneaker = sneakers.find(snk => snk.id == id);
+
+    // loader condition
     if (!sneaker) {
         return <Loader />
     }
-
-    
     
     const price = sneaker.avg_price.toFixed(2)
+
+    // image Carousel
     const sneakerPhotos = [sneaker.gallery_360[0],sneaker.gallery_360[4],sneaker.gallery_360[25],sneaker.gallery_360[19]];
     const currentPhoto = sneakerPhotos[currentIndex];
 
@@ -52,15 +54,29 @@ const ProductDetail = ({sneakers}) => {
 
             <NavSearch />
 
-            <div className='m-2 md:m-4 lg:mx-16  border-b-gray-300 pb-12 pt-7 max-md:pt-5.5 grid grid-cols-1 lg:grid-cols-2 gap-6 relative'>
+            <div className='m-2.5 md:m-4 lg:mx-16  border-b-gray-300 pb-12 pt-7 max-md:pt-6.5 grid grid-cols-1 lg:grid-cols-2 gap-6 relative'>
 
             {/* Page Links */}
-            <div className='font-palanquin text-sm text-slate-gray absolute top-0 mb-4'>
+            <div className='font-palanquin text-sm text-slate-gray absolute top-0 mb-4 line-clamp-1'>
                 <Link to={`/nike-app/`} className='hover:underline underline-offset-[1.5px]'>Home</Link>
                 <span> / </span>
-                <Link to={`/nike-app/products`} className='hover:underline underline-offset-[1.5px]'>Sneakers</Link>
+
+                {/* Conditional rendering of Links based on Brands*/}
+                {
+                brand ? 
+                (
+                <>
+                <Link to={`/nike-app/brands`} className='hover:underline underline-offset-[1.5px]'>Brands</Link>
                 <span> / </span>
-                <Link to={`/nike-app/products/${id}`} className='hover:underline underline-offset-[1.5px]'>{sneaker.brand}</Link>
+                <Link to={`/nike-app/brands/${brand}`} className='hover:underline underline-offset-[1.5px]'>{brand}</Link>
+                </>
+                ) : (
+                <Link to={`/nike-app/products`} className='hover:underline underline-offset-[1.5px]'>Sneakers</Link>
+                )
+                }
+
+                <span> / </span>
+                <Link to={`/nike-app/products/${id}`} className='hover:underline underline-offset-[1.5px]'>{sneaker.model}</Link>
             </div>
 
                 {/* left side */}
@@ -220,7 +236,7 @@ const ProductDetail = ({sneakers}) => {
             </div>
 
             <section className='mx-3 lg:mx-16 space-y-3 border-y pt-4 pb-12 border-y-gray-300'>
-                <RelatedProducts id={id} brand={sneaker.brand}  category={sneaker.category}  sneakers={sneakers}/>
+                <RelatedProducts id={id} brand={sneaker.brand} urlBrand={brand} category={sneaker.category}  sneakers={sneakers}/>
             </section>
 
             <section className='padding '>

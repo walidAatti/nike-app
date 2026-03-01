@@ -50,7 +50,7 @@ const Sorting = ({sneakers, setSneakers, originalSneakers, setIsPriceSorted}) =>
 
     return (
         <div 
-            className=" bg-gray-200 text-gray-700 p-2 max-sm:p-1 text-sm rounded-full hover:bg-gray-300 transition"
+            className=" bg-gray-200 text-gray-700 p-2 max-sm:p-1 text-sm rounded-full max-md:rounded-lg hover:bg-gray-300 transition"
             
         >
             <select 

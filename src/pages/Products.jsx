@@ -1,9 +1,8 @@
 import '../index.css';
 import { useState, useEffect } from "react"
-import ProductCard from "../components/ProductCard";
 import NavSearch from "../components/NavSearch";
 import FilterSideBar from '../components/FilterSideBar';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Sorting from '../components/Sorting';
 import Pagination from '../components/Pagination';
 import Loader from '../components/Loader';
@@ -13,8 +12,9 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
     
     const [search, setSearch] = useState("");
     const [isPriceSorted, setIsPriceSorted] = useState(false);
-    const [isListProduct, setisListProduct] = useState(true);
+    const isListProduct = true;
 
+    
     // scroll to top
     useEffect(() => {
             window.scrollTo(0, 0);
@@ -28,14 +28,28 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
     const lastIndex = startIndex + ITEMS_PAGE;
     const slicedSneakers = sneakers.slice(startIndex, lastIndex);
 
+    // Brands
+    const {brand} = useParams();
 
-    const filteredSneakers = sneakers.filter(sneaker => sneaker.model.toLowerCase().includes(search.trim().toLowerCase()))
+    const filteredBrandSneakers = brand 
+                                ?
+                                sneakers.filter(sneaker => sneaker.brand === brand)
+                                :
+                                sneakers;
+
+    const filteredOriginalSneakers = brand 
+                                ? originalSneakers.filter(sneaker => sneaker.brand === brand)
+                                : originalSneakers;
+        
+    const filteredSneakers = filteredBrandSneakers.filter(sneaker => sneaker.model.toLowerCase().includes(search.trim().toLowerCase()))
+    
+    
 
     return (
         <div className="2xl:container mx-auto">
 
             {/* Nav search */}
-            <NavSearch search= {search} setSearch={setSearch} isListProduct={isListProduct}/> 
+            <NavSearch search= {search} setSearch={setSearch} isListProduct={isListProduct}/>
 
                 {
                 sneakers.length !== 0 ?
@@ -48,13 +62,25 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                 
                 <div className="md:col-span-2 lg:col-span-4 grid gap-2 md:gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-16 sm:py-12 relative">
                     {/* Sort */}
-                    <div className='absolute top-0 flex justify-between w-full items-center max-sm:items-start gap-1 max-sm:flex-col'>
+                    <div className='absolute top-0 flex justify-between w-full items-end max-sm:items-start gap-1 max-sm:flex-col'>
 
                         {/* Page Links */}
-                        <div className='font-palanquin text-sm text-slate-gray'>
+                        <div className='font-palanquin text-sm text-slate-gray '>
                             <Link to={`/nike-app/`} className='hover:underline underline-offset-[1.5px]'>Home</Link>
                             <span> / </span>
+
+                            {
+                            brand ? (
+                            <>
+                            <Link to={`/nike-app/brands`} className='hover:underline underline-offset-[1.5px]'>Brands</Link>
+                            <span> / </span>
+                            <Link to={`/nike-app/brands/${brand}`} className='hover:underline underline-offset-[1.5px]'>{brand}</Link>
+                            </>
+                            ) : (
                             <Link to={`/nike-app/products`} className='hover:underline underline-offset-[1.5px]'>Sneakers</Link>
+                            )
+                            }
+                            
                         </div>
 
                         {/* sorting */}
@@ -66,12 +92,13 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                                             </p>
                             }
 
-                            <Sorting sneakers={filteredSneakers} setSneakers={setSneakers} originalSneakers={originalSneakers}  setIsPriceSorted={setIsPriceSorted}/>
+                            <Sorting sneakers={filteredSneakers} setSneakers={setSneakers} originalSneakers={filteredOriginalSneakers}  setIsPriceSorted={setIsPriceSorted}/>
                         </div>
                     </div>
 
-                    {/* Product List */}
-                    <ProductList sneakers={filteredSneakers} isPriceSorted={isPriceSorted}/>
+
+                    
+                    <ProductList sneakers={filteredSneakers} brand={brand} isPriceSorted={isPriceSorted}/>
 
 
                     {/* Pagination */}
@@ -91,6 +118,3 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
 }
 
 export default Products
-
-// 20
-// "https://api.kicks.dev/v3/stockx/products"

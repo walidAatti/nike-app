@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import Products from "./pages/Products"
 import ProductDetail from "./components/ProductDetail"
 import { useEffect, useState } from "react"
+import Brands from "./pages/Brands"
 
 
 const App = () => {
@@ -31,8 +32,11 @@ const App = () => {
     return (
         <Routes>
             <Route path="/nike-app/" element ={<Home />} />
-            <Route path="/nike-app/products" element ={<Products sneakers = {sneakers} originalSneakers = {originalSneakers} setSneakers={setSneakers}/>} />
+            <Route path="/nike-app/products" element ={<Products sneakers = {sneakers} originalSneakers={originalSneakers}  setSneakers={setSneakers}/>} />
             <Route path="/nike-app/products/:id" element ={<ProductDetail sneakers = {sneakers}/>} />
+            <Route path="/nike-app/brands" element ={<Brands sneakers = {sneakers}/>} />
+            <Route path="/nike-app/brands/:brand" element ={<Products sneakers = {sneakers} originalSneakers={originalSneakers} setSneakers={setSneakers}/>} />
+            <Route path="/nike-app/brands/:brand/:id" element ={<ProductDetail sneakers ={sneakers}/>} />
         </Routes>
     )
 }

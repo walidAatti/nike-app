@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom"
 import { IoCloseOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 const HamburgerSide = ({isClosed, seIsClosed}) => {
-
+    
     {/* stop scrolling */}
     {useEffect(() => {
         !isClosed ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
 
     // cleanup
     return () => {
-        document.body.style.overflow = "unset";
+        document.body.style.overflow = "auto";
     }
 
     },[isClosed])}
@@ -36,10 +36,9 @@ const HamburgerSide = ({isClosed, seIsClosed}) => {
         >
 
             <button 
-                className="text-3xl p-0.5 ml-auto cursor-pointer hover:bg-gray-100 text-slate-gray rounded-full"
+                className="text-3xl p-2 ml-auto cursor-pointer hover:bg-gray-100 text-slate-gray rounded-full"
                 onClick={(e) => {
                     seIsClosed(true)
-
                 }}
             >
                 <IoCloseOutline/>
@@ -47,15 +46,15 @@ const HamburgerSide = ({isClosed, seIsClosed}) => {
             
             <ul className=" w-full border-y">
                 <li className="border-b text-lg font-montserrat bg-gray-50 cursor-pointer transition p-3.5  hover:bg-gray-100">
-                    <Link to={'/nike-app/'}>Home</Link>
+                    <Link to={'/nike-app/'} onClick={() => seIsClosed(true)}>Home</Link>
                 </li>
                 
                 <li className="border-b text-lg font-montserrat bg-gray-50 cursor-pointer transition p-3.5 hover:bg-gray-100">
-                    <Link to={'/nike-app/products'}>Products</Link>
+                    <Link to={'/nike-app/products'} onClick={() => seIsClosed(true)}>Products</Link>
                 </li>
                 
                 <li className="bg-gray-50 text-lg font-montserrat cursor-pointer transition p-3.5 hover:bg-gray-100">
-                    <Link to={'/nike-app/products'}>Brands</Link>
+                    <Link to={'/nike-app/brands'} onClick={() => seIsClosed(true)}>Brands</Link>
                 </li>
 
 

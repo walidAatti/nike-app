@@ -7,7 +7,7 @@ import HamburgerSide from './HamburgerSide';
 import { navLinks } from '../constants'
 
 
-const NavSearch = ({search, setSearch, isListProduct, isHome}) => {
+const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage}) => {
 
     const [isClosed, seIsClosed] = useState(true);
 
@@ -29,6 +29,19 @@ const NavSearch = ({search, setSearch, isListProduct, isHome}) => {
                     value={search} 
                     onChange={e => setSearch(e.target.value)} 
                     placeholder="Search By Sneaker Model"
+                    className='input p-2 border w-full'
+                />
+            </div> }
+
+            {isBrandPage && 
+            
+            <div className='w-1/2 mx-auto'>
+                <input 
+                    type="text" 
+                    id="search" 
+                    value={search} 
+                    onChange={e => setSearch(e.target.value)} 
+                    placeholder="Search By Brand name"
                     className='input p-2 border w-full'
                 />
             </div> }

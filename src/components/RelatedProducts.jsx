@@ -5,7 +5,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
 
 
-const RelatedProducts = ({sneakers, brand, category, id}) => {
+const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
 
     const scrollRef = useRef(null);
 
@@ -21,8 +21,6 @@ const RelatedProducts = ({sneakers, brand, category, id}) => {
 
     return ( <>
         <p className="text-lg text-slate-gray font-montserrat">Related Products</p>
-
-
         
         <div className="relative md:px-12">
 
@@ -57,8 +55,8 @@ const RelatedProducts = ({sneakers, brand, category, id}) => {
             relatedSneakers.map(product => (
                 <Link 
                     key={product.id} 
-                    to={`/nike-app/products/${product.id}`} 
-                    className="shrink-0 snap-start w-1/4"
+                    to={urlBrand ? `/nike-app/brands/${urlBrand}/${product.id}` : `/nike-app/products/${product.id}`} 
+                    className="shrink-0 snap-start w-1/2 sm:w-1/3 md:w-1/4"
                 >
                     <ProductCard sneaker={product} />
                 </Link>
