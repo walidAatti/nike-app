@@ -5,7 +5,7 @@ import NavSearch from '../components/NavSearch';
 
 function Home() {
 
-  const [isHome, seIsHome] = useState(true)
+  const isHome = true
 
   return (
     <main className='2xl:container mx-auto'>

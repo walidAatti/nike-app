@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Products from "./pages/Products"
-import ProductDetail from "./components/ProductDetail"
+import ProductDetail from "./pages/ProductDetail"
 import { useEffect, useState } from "react"
 import Brands from "./pages/Brands"
 

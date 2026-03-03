@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import NavSearch from "../components/NavSearch";
 import { useState } from "react";
+import BrandCard from "../components/BrandCard";
 
 const Brands = ({sneakers}) => {    
 
@@ -23,7 +24,7 @@ const Brands = ({sneakers}) => {
     return (
         <div className="2xl:container mx-auto">
 
-            <NavSearch search= {search} setSearch={setSearch} isBrandPage={isBrandPage}/>
+            <NavSearch search= {search}  setSearch={setSearch} isBrandPage={isBrandPage}/>
 
 
             <div className='px-3 sm:px-16 pt-4 pb-2 font-palanquin text-sm text-slate-gray'>
@@ -34,21 +35,20 @@ const Brands = ({sneakers}) => {
 
             {/* brands List */}
             <div className="px-3 sm:px-16 pb-4 grid max-[450px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredBrands.map((brand,index) => (
-                    <Link key={index} to={`/nike-app/brands/${brand[0]}`} className=" ">
+                { filteredBrands.length > 0
+                ?
+                filteredBrands.map((brand,index) => (
+                    <Link key={index} to={`/nike-app/brands/${brand[0]}`}>
+                        {/* Brand Card */}
+                        <BrandCard brand={brand}/>
 
-                        <div key={index} className="border border-gray-50 shadow aspect-video flex flex-col gap-2 overflow-hidden">
-                            <div className="flex flex-1 bg-gray-50 hover:bg-gray-100 transition duration-200 justify-center items-center font-montserrat font-light text-slate-gray max-sm:text-3xl text-4xl text-center">
-                                <p>{brand[0]}</p>
-                            </div>
-                            <div className="px-2 pb-2">
-                                {/* <p  className="text-sm text-slate-gray"><span className="font-palanquin capitalize hover:underline underline-offset-2 transition duration-200">{brand[0]}</span></p> */}
-                                <p className="text-sm text-slate-gray"><span className="font-palanquin text-base ">{brand[1]}</span> product(s) </p>
-                            </div>
-                        </div>
-                        
                     </Link>
-                ))}
+                ))
+                :
+                <div className="col-span-full py-40 text-center flex justify-center items-center">
+                        <p className="font-montserrat text-2xl text-coral-red">We don't have a Brand with this name</p>
+                </div>
+                }
             </div>
         </div>
     )

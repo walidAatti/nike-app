@@ -10,7 +10,7 @@ const Hero = () => {
 
     return (
         <section 
-        className=" flex flex-col gap-10 justify-center min-h-screen xl:flex-row ">
+        className="flex flex-col gap-10 justify-center min-h-screen lg:flex-row">
             {/* First Section */}
             <div className="xl:w-2/5 padding-x flex flex-col items-start justify-center pt-28">
                 <p className=" font-montserrat text-coral-red text-xl">Our Summer Collections</p>
@@ -42,17 +42,17 @@ const Hero = () => {
             </div>
 
             {/* Second Section */}
-            <div className="bg-hero bg-cover bg-center min-h-screen flex justify-center relative items-center w-full xl:mr-16 xl:ml-5">
-                <img src={currentShoe} alt="bigshoe"/>
+            <div className="bg-hero bg-cover bg-center h-[80vh] md:h-screen flex justify-center relative items-center w-full xl:mr-16 xl:ml-5">
+                <img src={currentShoe} alt="bigshoe" className="max-sm:w-[90%] max-md:w-2/5 lg:max-h-1/2 max-sm:mb-12 "/>
 
             {/* cards */}
-                <div className="flex gap-10 absolute -bottom-20 max-sm:-bottom-10">                               
+                <div className="flex gap-10 absolute p-5 -bottom-25 max-sm:-bottom-10">                               
                 {shoes.map((shoe, index) => (
                     <div 
                         key={index} 
                         tabIndex={0}
                         onClick={() => setShoe(shoe.bigShoe)} 
-                        className="bg-card bg-cover bg-center rounded-xl p-7  cursor-pointer outline-offset-1 outline-amber-600 hover:outline-3 focus:outline-3"
+                        className="bg-card bg-cover bg-center rounded-xl p-7 cursor-pointer outline-offset-1 outline-amber-600 hover:outline-3 focus:outline-3"
                     >
                         <img src={shoe.thumbnail} alt="shoe"/>
                     </div>

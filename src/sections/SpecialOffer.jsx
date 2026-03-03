@@ -33,14 +33,16 @@ const SpecialOffer = () => {
 
             {/* shop now */}
             <Link to={'/products'}
-              className="w-fit whitespace-nowrap flex gap-4 rounded-full py-3 px-6 max-sm:px-7 text-lg text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors">
+              className="w-fit whitespace-nowrap flex gap-4 rounded-full py-3 px-6 max-sm:px-7 text-lg 
+                      text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors">
                 Shop now
               <img src={arrowRight} alt="arrow"/>
             </Link>
 
             {/* learn more */}
             <Link to={'/products'}
-              className="w-fit whitespace-nowrap rounded-full py-3 px-6 max-sm:px-7 text-lg font-montserrat border border-slate-gray hover:outline outline-gray-500">
+              className="w-fit whitespace-nowrap rounded-full py-3 px-6 max-sm:px-7 text-lg font-montserrat border
+                        border-slate-gray hover:outline outline-gray-500">
                 Learn More
             </Link>
 

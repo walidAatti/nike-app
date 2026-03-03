@@ -1,15 +1,15 @@
 import '../index.css';
 import { Link, useParams } from "react-router-dom";
-import Loader from './Loader';
+import Loader from '../components/Loader';
 import { useState, useEffect } from 'react';
 import Footer from '../sections/Footer';
-import RelatedProducts from './RelatedProducts';
+import RelatedProducts from '../components/RelatedProducts';
 import NewsLetter from '../sections/NewsLetter';
 import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
-import NavSearch from './NavSearch';
+import NavSearch from '../components/NavSearch';
+import { CgLoadbar } from "react-icons/cg";
 
 
 
@@ -18,6 +18,7 @@ const ProductDetail = ({sneakers}) => {
     
     const {brand, id} = useParams();
     const [currentIndex, setCurrentIndex] = useState(0);
+    const isDetailPage = true;
 
     // scroll to top
     useEffect(() => {
@@ -52,7 +53,7 @@ const ProductDetail = ({sneakers}) => {
         <div className="2xl:container mx-auto">
 
 
-            <NavSearch />
+            <NavSearch isDetailPage={isDetailPage}/>
 
             <div className='m-2.5 md:m-4 lg:mx-16  border-b-gray-300 pb-12 pt-7 max-md:pt-6.5 grid grid-cols-1 lg:grid-cols-2 gap-6 relative'>
 
@@ -138,12 +139,16 @@ const ProductDetail = ({sneakers}) => {
                             <p className='font-bold text-lg'>{sneaker.model}</p>
                         </div>
                         <div>
+                            <p className='text-slate-gray'>Gender</p>
+                            <p className='font-bold text-lg'>{sneaker.gender}</p>
+                        </div>
+                        <div>
                             <p className='text-slate-gray'>SKU</p>
-                            <p className='font-bold text-lg'>{sneaker.sku}</p>
+                            <p className='font-bold text-lg'>{sneaker.sku || <CgLoadbar className=' mt-1.5'/>}</p>
                         </div>
                         <div>
                             <p className='text-slate-gray'>Category</p>
-                            <p className='font-bold text-lg'>{sneaker.category}</p>
+                            <p className='font-bold text-lg'>{sneaker.breadcrumbs[1]?.value || <CgLoadbar className='md:text-center md:w-full mt-1.5'/>} </p>
                         </div>
                         <div>
                             <p className='text-slate-gray'>Average Price</p>
@@ -164,16 +169,16 @@ const ProductDetail = ({sneakers}) => {
 
                         <div className='font-bold font-montserrat pb-2 flex justify-between items-center '>
                             <p >Description:</p>
-                            <p 
+                            <div 
                                 className='text-3xl me-3 cursor-pointer'
                                 onClick={() => {
                                     setIsOpened(!isOpened);
                                 }}
                             >
-                                <div className='text-slate-gray'>
-                                    {isOpened ? <IoIosArrowUp /> : <IoIosArrowDown /> }
-                                </div>
-                            </p>
+                                <p className={`text-slate-gray transition duration-300 ${ !isOpened && "rotate-180"}`}>
+                                    <IoIosArrowUp />
+                                </p>
+                            </div>
                         </div>
                         <p className={`font-montserrat pb-2 text-slate-gray ${isOpened ? "block" : "hidden"}`}>{sneaker.description}</p>
                     </div>
@@ -184,16 +189,16 @@ const ProductDetail = ({sneakers}) => {
 
                         <div className='font-bold font-montserrat pb-2 flex justify-between items-center '>
                             <p >Market Statistics Last Week:</p>
-                            <p 
+                            <div 
                                 className='text-3xl me-3 cursor-pointer'
                                 onClick={() => {
                                     setIsMarketOpened(!isMarketOpened);
                                 }}
                             >
-                                <div className='text-slate-gray'>
-                                    {isMarketOpened ? <IoIosArrowUp /> : <IoIosArrowDown /> }
-                                </div>
-                            </p>
+                                <p className={`text-slate-gray transition duration-300 ${ !isMarketOpened && "rotate-180"}`}>
+                                    <IoIosArrowUp />
+                                </p>
+                            </div>
                         </div>
                         <div 
                             className={`font-montserrat pb-2 grid grid-cols-1 gap-3 sm:grid-cols-2  md:grid-cols-3 ${isMarketOpened ? "block" : "hidden"}`}

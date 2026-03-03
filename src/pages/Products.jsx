@@ -2,18 +2,22 @@ import '../index.css';
 import { useState, useEffect } from "react"
 import NavSearch from "../components/NavSearch";
 import FilterSideBar from '../components/FilterSideBar';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Sorting from '../components/Sorting';
 import Pagination from '../components/Pagination';
 import Loader from '../components/Loader';
 import ProductList from '../components/ProductList';
 
 const Products = ({sneakers, setSneakers, originalSneakers}) => {
+
+    // use Search Params
+    const [searchParams, setSearchParams] = useSearchParams()
+    console.log(searchParams.get("brand"))
+
     
     const [search, setSearch] = useState("");
     const [isPriceSorted, setIsPriceSorted] = useState(false);
     const isListProduct = true;
-
     
     // scroll to top
     useEffect(() => {
@@ -40,8 +44,20 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
     const filteredOriginalSneakers = brand 
                                 ? originalSneakers.filter(sneaker => sneaker.brand === brand)
                                 : originalSneakers;
+
+
+    // Params keys
+    const brandsParam = searchParams.getAll("brand") ;
+    const categoriesParam = searchParams.getAll("category") ;
+    const genderParam = searchParams.get("gender");
+    console.log(genderParam)
         
-    const filteredSneakers = filteredBrandSneakers.filter(sneaker => sneaker.model.toLowerCase().includes(search.trim().toLowerCase()))
+    const filteredSneakers = filteredBrandSneakers.filter(sneaker => sneaker.title.toLowerCase().includes(search.trim().toLowerCase()))
+                                                .filter(sneaker => brandsParam.length === 0 || brandsParam.includes(sneaker.brand))
+                                                .filter(sneaker => categoriesParam.length === 0 || categoriesParam.includes(sneaker.breadcrumbs[1]?.value))
+                                                .filter(sneaker => (!genderParam || genderParam == "All") || sneaker.gender === genderParam)
+
+    
     
     
 
@@ -49,7 +65,7 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
         <div className="2xl:container mx-auto">
 
             {/* Nav search */}
-            <NavSearch search= {search} setSearch={setSearch} isListProduct={isListProduct}/>
+            <NavSearch search={search} setSearch={setSearch} isListProduct={isListProduct}/>
 
                 {
                 sneakers.length !== 0 ?
@@ -57,7 +73,10 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                 <div className='px-2 sm:px-16 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-5'>
                     {/* Filter Sidebar */}
                     <section>
-                        <FilterSideBar />
+                        <FilterSideBar  filteredSneakers={originalSneakers} setSneakers={setSneakers} 
+                                        searchParams={searchParams} setSearchParams={setSearchParams}
+                                        brand ={brand}
+                        />
                     </section>
                 
                 <div className="md:col-span-2 lg:col-span-4 grid gap-2 md:gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-16 sm:py-12 relative">
@@ -84,10 +103,10 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                         </div>
 
                         {/* sorting */}
-                        <div className='flex items-center gap-2'>
+                        <div className='flex max-sm:flex-row-reverse items-center gap-2'>
 
-                            {search.trim() && <p 
-                                                className='max-sm:hidden font-montserrat text-sm text-slate-gray'>
+                            {(search.trim() || filteredSneakers.length < originalSneakers.length || genderParam == "All") && <p 
+                                                className=' font-montserrat text-sm text-slate-gray'>
                                                     results:<span className='font-bold'> {filteredSneakers.length}</span>
                                             </p>
                             }
