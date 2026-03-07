@@ -10,20 +10,29 @@ import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 import NavSearch from '../components/NavSearch';
 import { CgLoadbar } from "react-icons/cg";
+import { IoHeart } from "react-icons/io5";
+import { IoMdHeartEmpty } from "react-icons/io";
 
 
 
 
-const ProductDetail = ({sneakers}) => {
+const ProductDetail = ({sneakers, favourites = [], setFavourites}) => {
     
     const {brand, id} = useParams();
     const [currentIndex, setCurrentIndex] = useState(0);
     const isDetailPage = true;
+    // check if iSFavourite
+    const isFavourite = favourites.includes(id)
+    // need to add toggle
+    const toggleFavorite = id => {
+        if (favourites.find(favourite => favourite === id)) {
+            setFavourites(favourites.filter(favourite => favourite !== id))
 
-    // scroll to top
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [id]);
+        } else {
+            setFavourites([id, ...favourites])
+        }
+    }
+
 
     // description
     const [isOpened, setIsOpened] = useState(true)
@@ -58,27 +67,38 @@ const ProductDetail = ({sneakers}) => {
             <div className='m-2.5 md:m-4 lg:mx-16  border-b-gray-300 pb-12 pt-7 max-md:pt-6.5 grid grid-cols-1 lg:grid-cols-2 gap-6 relative'>
 
             {/* Page Links */}
-            <div className='font-palanquin text-sm text-slate-gray absolute top-0 mb-4 line-clamp-1'>
-                <Link to={`/nike-app/`} className='hover:underline underline-offset-[1.5px]'>Home</Link>
-                <span> / </span>
+            <div className=' absolute top-0 mb-4 flex justify-between w-full items-start'>
 
-                {/* Conditional rendering of Links based on Brands*/}
-                {
-                brand ? 
-                (
-                <>
-                <Link to={`/nike-app/brands`} className='hover:underline underline-offset-[1.5px]'>Brands</Link>
-                <span> / </span>
-                <Link to={`/nike-app/brands/${brand}`} className='hover:underline underline-offset-[1.5px]'>{brand}</Link>
-                </>
-                ) : (
-                <Link to={`/nike-app/products`} className='hover:underline underline-offset-[1.5px]'>Sneakers</Link>
-                )
-                }
+                <div  className='font-palanquin text-sm text-slate-gray line-clamp-1'>
+                    <div>
+                        <Link to={`/nike-app/`} className='hover:underline underline-offset-[1.5px]'>Home</Link>
+                    <span> / </span>
 
-                <span> / </span>
-                <Link to={`/nike-app/products/${id}`} className='hover:underline underline-offset-[1.5px]'>{sneaker.model}</Link>
+                    {/* Conditional rendering of Links based on Brands*/}
+                    {
+                    brand ? 
+                    (
+                    <>
+                    <Link to={`/nike-app/brands`} className='hover:underline underline-offset-[1.5px]'>Brands</Link>
+                    <span> / </span>
+                    <Link to={`/nike-app/brands/${brand}`} className='hover:underline underline-offset-[1.5px]'>{brand}</Link>
+                    </>
+                    ) : (
+                    <Link to={`/nike-app/products`} className='hover:underline underline-offset-[1.5px]'>Sneakers</Link>
+                    )
+                    }
+
+                    <span> / </span>
+                    <Link to={`/nike-app/products/${id}`} className='hover:underline underline-offset-[1.5px]'>{sneaker.model}</Link>
+                    </div>
+                </div>
+
+                <button onClick={() => toggleFavorite(id)} className='text-lg text-coral-red md:text-2xl cursor-pointer'>
+                    {isFavourite ? <IoHeart/> : <IoMdHeartEmpty/>}
+                </button>
+
             </div>
+                
 
                 {/* left side */}
                 <div className='flex flex-col w-full'>
@@ -241,7 +261,9 @@ const ProductDetail = ({sneakers}) => {
             </div>
 
             <section className='mx-3 lg:mx-16 space-y-3 border-y pt-4 pb-12 border-y-gray-300'>
-                <RelatedProducts id={id} brand={sneaker.brand} urlBrand={brand} category={sneaker.category}  sneakers={sneakers}/>
+                <RelatedProducts id={id} brand={sneaker.brand} urlBrand={brand} category={sneaker.category} 
+                                sneakers={sneakers} setFavourites={setFavourites} favourites={favourites}
+                />
             </section>
 
             <section className='padding '>

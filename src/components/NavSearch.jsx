@@ -8,28 +8,28 @@ import { navLinks } from '../constants'
 import { IoSearch } from "react-icons/io5";
 import SearchBar from './SearchBar';
 
-const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage, isDetailPage}) => {
+const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage, isDetailPage, isFavoritePage}) => {
 
     const [isClosed, seIsClosed] = useState(true);
     const [ShowSearch, setShowSearch] = useState(false)
 
     return (
         <header className={`p-3 sm:px-16 py-4 flex max-sm:gap-2 gap-7 items-center justify-between border-b border-b-gray-300
-                        ${isHome ? "absolute z-10 w-full " : "static"}`}
+                        ${isHome ? "absolute z-10 w-full": "static"}`}
         >
             <Link to={"/nike-app/"} className={`${ShowSearch ? "max-sm:hidden" : 'inline'}`}>
                 <img src= {headerLogo} alt="logo"/>
             </Link>
 
                     <SearchBar search= {search} setSearch={setSearch} isListProduct={isListProduct} 
-                    ShowSearch={ShowSearch} setShowSearch={setShowSearch} isHome={isHome} isBrandPage={isBrandPage}/>
+                    ShowSearch={ShowSearch} setShowSearch={setShowSearch} isHome={isHome} isBrandPage={isBrandPage} isFavoritePage={isFavoritePage}/>
 
             {/* conditional NavLinks rendering */}
             {isHome &&
                 <ul className='max-lg:hidden flex gap-16 font-montserrat text-lg text-slate-gray'>
                     {navLinks.map((link, index) => 
                         <li key={index} className='hover:underline hover:text-black underline-offset-2'>
-                            <a href={link.href}>{link.label}</a>
+                            <Link to={link.href}>{link.label}</Link>
                         </li>
                     )}
                 </ul>

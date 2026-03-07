@@ -1,12 +1,12 @@
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineCancel } from 'react-icons/md';
 
-const SearchBar = ({search, setSearch, isListProduct, isBrandPage, ShowSearch, setShowSearch}) => {
+const SearchBar = ({search, setSearch, isListProduct, isBrandPage, ShowSearch, setShowSearch, isFavoritePage}) => {
 
 
     return <>
         
-        {(isListProduct || isBrandPage) &&
+        {(isListProduct || isBrandPage || isFavoritePage) &&
                     
                     <div className={`w-1/2 mx-auto relative max-sm:grow ${ShowSearch ? "inline" : "max-sm:hidden"}`}>
                         <input 
@@ -14,7 +14,7 @@ const SearchBar = ({search, setSearch, isListProduct, isBrandPage, ShowSearch, s
                             id="search" 
                             value={search} 
                             onChange={e => setSearch(e.target.value)} 
-                            placeholder= {isListProduct ? "Search By Sneaker Name" : "Search By Brand"}
+                            placeholder= {(isListProduct || isFavoritePage) ? "Search By Sneaker Name" : "Search By Brand"}
                             className={`input p-2 px-7 border w-full max-sm:placeholder:text-sm  }`}
                         />
         

@@ -22,7 +22,7 @@ const QualityProducts = () => {
           Our dedication to detail and excellence ensures your satisfaction
         </p>
 
-        <Link to={'/products'}
+        <Link to={'/nike-app/products?minPrice=300'}
             className="rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors w-fit">
               View Details
         </Link>

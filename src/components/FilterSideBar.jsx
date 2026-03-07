@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
+import PriceRange from "./PriceRange";
 
 const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand}) => {
 
@@ -7,12 +8,21 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
     const [isCategoryOpened, setIsCategoryOpened] = useState(true);
     const [isBrandOpened, setIsBrandOpened] = useState(true);
     const [isGenderOpened, setIsGenderOpened] = useState(true);
+    const [isPriceOpened, setIsPriceOpened] = useState(true);
+    // range slider
+    const MAX = 5000
+    const MIN = 0
+
+    const minPriceParam = parseInt(searchParams.get("minPrice")) || MIN;
+    const maxPriceParam = parseInt(searchParams.get("maxPrice")) || MAX;
+
+    
 
     // count Products in categories 
     const categories = filteredSneakers.map(s => s.breadcrumbs[1]).filter(Boolean).map(s=> s.value)
     
     // top Categories
-    const topCategories = [...new Set(categories)].sort((a,b) => b[1] - a[1]).slice(0,6)
+    const topCategories = [...new Set(categories)].slice(0,6)
 
     const brands = filteredSneakers.map(sneaker => sneaker.brand)
     const sortedBrands = [...new Set(brands)].sort((a,b) => b - a);
@@ -20,11 +30,12 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
     // searchParams
     const brandsParam = searchParams.getAll("brand");
     const categoriesParam = searchParams.getAll("category");
-    console.log(brandsParam)
 
-    // gender logic
+    // gender 
     const genders = ["All", "women", "men", "kids", "unisex"]
     const genderParam = searchParams.get('gender')
+
+    
 
     return (
         <div className="border-gray-300 space-y-3">
@@ -209,6 +220,21 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
             </div>
 
             {/* Price Range */}
+            <PriceRange 
+                minPrice={minPriceParam} 
+                setMinPrice={(val) => {
+                    const params = new URLSearchParams(searchParams);
+                    params.set("minPrice", val);
+                    setSearchParams(params);
+                }}
+                maxPrice={maxPriceParam}
+                setMaxPrice={(val) => {
+                    const params = new URLSearchParams(searchParams);
+                    params.set("maxPrice", val);
+                    setSearchParams(params);
+                }}
+                isPriceOpened={isPriceOpened} setIsPriceOpened={setIsPriceOpened}
+            />
 
 
         </div>

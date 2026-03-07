@@ -30,7 +30,7 @@ const PopularProducts = () => {
           ))}
       </div>
 
-      <Link to={'/products'}
+      <Link to={'/nike-app/products'}
           className="mt-10 rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red flex gap-4 hover:bg-[#e75747] transition-colors w-fit mx-auto">
             See More
             <img src={arrowRight} alt="arrow" />

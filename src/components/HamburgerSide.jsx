@@ -44,7 +44,7 @@ const HamburgerSide = ({isClosed, seIsClosed}) => {
                 <IoCloseOutline/>
             </button>
             
-            <ul className=" w-full border-y">
+            <ul className="w-full border-y">
                 <li className="border-b text-lg font-montserrat bg-gray-50 cursor-pointer transition p-3.5  hover:bg-gray-100">
                     <Link to={'/nike-app/'} onClick={() => seIsClosed(true)}>Home</Link>
                 </li>
@@ -53,8 +53,12 @@ const HamburgerSide = ({isClosed, seIsClosed}) => {
                     <Link to={'/nike-app/products'} onClick={() => seIsClosed(true)}>Products</Link>
                 </li>
                 
-                <li className="bg-gray-50 text-lg font-montserrat cursor-pointer transition p-3.5 hover:bg-gray-100">
+                <li className="border-b bg-gray-50 text-lg font-montserrat cursor-pointer transition p-3.5 hover:bg-gray-100">
                     <Link to={'/nike-app/brands'} onClick={() => seIsClosed(true)}>Brands</Link>
+                </li>
+                
+                <li className="bg-gray-50 text-lg font-montserrat cursor-pointer transition p-3.5 hover:bg-gray-100">
+                    <Link to={'/nike-app/favorites'} onClick={() => seIsClosed(true)}>Favorites</Link>
                 </li>
 
 

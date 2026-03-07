@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import '../index.css'
 import {Nav, PopularProducts, QualityProducts, Services, SpecialOffer, CustomersReviews, NewsLetter, Footer, Hero} from '../sections/export';
 import NavSearch from '../components/NavSearch';
+import ScrollTopButton from '../components/ScrollTopButton';
 
 function Home() {
 
@@ -9,6 +9,8 @@ function Home() {
 
   return (
     <main className='2xl:container mx-auto'>
+
+      <ScrollTopButton />
       
       <NavSearch isHome={isHome} />
 

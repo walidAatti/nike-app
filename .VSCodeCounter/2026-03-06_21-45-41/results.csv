@@ -1,0 +1,73 @@
+"filename", "language", "JSON", "JavaScript", "Markdown", "JavaScript JSX", "PostCSS", "HTML", "XML", "comment", "blank", "total"
+"c:\Users\admin\Documents\code\nike-app\README.md", "Markdown", 0, 0, 2, 0, 0, 0, 0, 0, 2, 4
+"c:\Users\admin\Documents\code\nike-app\eslint.config.js", "JavaScript", 0, 28, 0, 0, 0, 0, 0, 0, 2, 30
+"c:\Users\admin\Documents\code\nike-app\index.html", "HTML", 0, 0, 0, 0, 0, 19, 0, 1, 2, 22
+"c:\Users\admin\Documents\code\nike-app\package-lock.json", "JSON", 6354, 0, 0, 0, 0, 0, 0, 0, 1, 6355
+"c:\Users\admin\Documents\code\nike-app\package.json", "JSON", 36, 0, 0, 0, 0, 0, 0, 0, 1, 37
+"c:\Users\admin\Documents\code\nike-app\public\sneakers.json", "JSON", 78054, 0, 0, 0, 0, 0, 0, 0, 0, 78054
+"c:\Users\admin\Documents\code\nike-app\src\App.jsx", "JavaScript JSX", 0, 0, 0, 53, 0, 0, 0, 1, 14, 68
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\arrow-right.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\chevron-left.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\chevron-right.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\copyright-sign.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\facebook.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\hamburger.svg", "XML", 0, 0, 0, 0, 0, 0, 19, 0, 2, 21
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\index.js", "JavaScript", 0, 26, 0, 0, 0, 0, 0, 0, 1, 27
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\instagram.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\shield-tick.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\star.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\support.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\truck-fast.svg", "XML", 0, 0, 0, 0, 0, 0, 10, 0, 1, 11
+"c:\Users\admin\Documents\code\nike-app\src\assets\icons\twitter.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\collection-background.svg", "XML", 0, 0, 0, 0, 0, 0, 6, 0, 1, 7
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\customer2.svg", "XML", 0, 0, 0, 0, 0, 0, 9, 0, 1, 10
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\footer-logo.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\header-logo.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 1, 5
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\index.js", "JavaScript", 0, 36, 0, 0, 0, 0, 0, 0, 11, 47
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\offer.svg", "XML", 0, 0, 0, 0, 0, 0, 105, 0, 1, 106
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\shoe4.svg", "XML", 0, 0, 0, 0, 0, 0, 32, 0, 1, 33
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\shoe5.svg", "XML", 0, 0, 0, 0, 0, 0, 32, 0, 1, 33
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\shoe6.svg", "XML", 0, 0, 0, 0, 0, 0, 32, 0, 1, 33
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\shoe7.svg", "XML", 0, 0, 0, 0, 0, 0, 32, 0, 1, 33
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\shoe8.svg", "XML", 0, 0, 0, 0, 0, 0, 18, 0, 1, 19
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\thumbnail-background.svg", "XML", 0, 0, 0, 0, 0, 0, 11, 0, 1, 12
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\thumbnail-shoe1.svg", "XML", 0, 0, 0, 0, 0, 0, 9, 0, 1, 10
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\thumbnail-shoe2.svg", "XML", 0, 0, 0, 0, 0, 0, 9, 0, 1, 10
+"c:\Users\admin\Documents\code\nike-app\src\assets\images\thumbnail-shoe3.svg", "XML", 0, 0, 0, 0, 0, 0, 9, 0, 1, 10
+"c:\Users\admin\Documents\code\nike-app\src\assets\roller.svg", "XML", 0, 0, 0, 0, 0, 0, 2, 0, 0, 2
+"c:\Users\admin\Documents\code\nike-app\src\assets\spinner.svg", "XML", 0, 0, 0, 0, 0, 0, 10, 0, 0, 10
+"c:\Users\admin\Documents\code\nike-app\src\components\BrandCard.jsx", "JavaScript JSX", 0, 0, 0, 13, 0, 0, 0, 1, 2, 16
+"c:\Users\admin\Documents\code\nike-app\src\components\FilterSideBar.jsx", "JavaScript JSX", 0, 0, 0, 187, 0, 0, 0, 19, 38, 244
+"c:\Users\admin\Documents\code\nike-app\src\components\HamburgerSide.jsx", "JavaScript JSX", 0, 0, 0, 51, 0, 0, 0, 3, 19, 73
+"c:\Users\admin\Documents\code\nike-app\src\components\Loader.jsx", "JavaScript JSX", 0, 0, 0, 9, 0, 0, 0, 0, 2, 11
+"c:\Users\admin\Documents\code\nike-app\src\components\Nav.jsx", "JavaScript JSX", 0, 0, 0, 28, 0, 0, 0, 1, 7, 36
+"c:\Users\admin\Documents\code\nike-app\src\components\NavSearch.jsx", "JavaScript JSX", 0, 0, 0, 48, 0, 0, 0, 2, 9, 59
+"c:\Users\admin\Documents\code\nike-app\src\components\Pagination.jsx", "JavaScript JSX", 0, 0, 0, 20, 0, 0, 0, 1, 3, 24
+"c:\Users\admin\Documents\code\nike-app\src\components\PriceRange.jsx", "JavaScript JSX", 0, 0, 0, 54, 0, 0, 0, 5, 6, 65
+"c:\Users\admin\Documents\code\nike-app\src\components\ProductCard.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 2, 10, 57
+"c:\Users\admin\Documents\code\nike-app\src\components\ProductList.jsx", "JavaScript JSX", 0, 0, 0, 33, 0, 0, 0, 1, 7, 41
+"c:\Users\admin\Documents\code\nike-app\src\components\RelatedProducts.jsx", "JavaScript JSX", 0, 0, 0, 75, 0, 0, 0, 9, 23, 107
+"c:\Users\admin\Documents\code\nike-app\src\components\ScrollToTop.jsx", "JavaScript JSX", 0, 0, 0, 13, 0, 0, 0, 0, 6, 19
+"c:\Users\admin\Documents\code\nike-app\src\components\ScrollTopButton.jsx", "JavaScript JSX", 0, 0, 0, 39, 0, 0, 0, 0, 11, 50
+"c:\Users\admin\Documents\code\nike-app\src\components\SearchBar.jsx", "JavaScript JSX", 0, 0, 0, 32, 0, 0, 0, 2, 10, 44
+"c:\Users\admin\Documents\code\nike-app\src\components\Sorting.jsx", "JavaScript JSX", 0, 0, 0, 55, 0, 0, 0, 3, 16, 74
+"c:\Users\admin\Documents\code\nike-app\src\constants\index.js", "JavaScript", 0, 115, 0, 0, 0, 0, 0, 0, 11, 126
+"c:\Users\admin\Documents\code\nike-app\src\fetchSneakers.js", "JavaScript", 0, 26, 0, 0, 0, 0, 0, 0, 7, 33
+"c:\Users\admin\Documents\code\nike-app\src\index.css", "PostCSS", 0, 0, 0, 0, 83, 0, 0, 7, 23, 113
+"c:\Users\admin\Documents\code\nike-app\src\main.jsx", "JavaScript JSX", 0, 0, 0, 9, 0, 0, 0, 0, 2, 11
+"c:\Users\admin\Documents\code\nike-app\src\pages\Brands.jsx", "JavaScript JSX", 0, 0, 0, 40, 0, 0, 0, 4, 13, 57
+"c:\Users\admin\Documents\code\nike-app\src\pages\Favorites.jsx", "JavaScript JSX", 0, 0, 0, 24, 0, 0, 0, 1, 8, 33
+"c:\Users\admin\Documents\code\nike-app\src\pages\Home.jsx", "JavaScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 18, 56
+"c:\Users\admin\Documents\code\nike-app\src\pages\ProductDetail.jsx", "JavaScript JSX", 0, 0, 0, 210, 0, 0, 0, 14, 58, 282
+"c:\Users\admin\Documents\code\nike-app\src\pages\Products.jsx", "JavaScript JSX", 0, 0, 0, 89, 0, 0, 0, 11, 33, 133
+"c:\Users\admin\Documents\code\nike-app\src\sections\CustomersReviews.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 1, 10, 56
+"c:\Users\admin\Documents\code\nike-app\src\sections\Footer.jsx", "JavaScript JSX", 0, 0, 0, 56, 0, 0, 0, 2, 11, 69
+"c:\Users\admin\Documents\code\nike-app\src\sections\Hero.jsx", "JavaScript JSX", 0, 0, 0, 55, 0, 0, 0, 3, 15, 73
+"c:\Users\admin\Documents\code\nike-app\src\sections\NewsLetter.jsx", "JavaScript JSX", 0, 0, 0, 25, 0, 0, 0, 1, 5, 31
+"c:\Users\admin\Documents\code\nike-app\src\sections\PopularProducts.jsx", "JavaScript JSX", 0, 0, 0, 36, 0, 0, 0, 1, 6, 43
+"c:\Users\admin\Documents\code\nike-app\src\sections\QualityProducts.jsx", "JavaScript JSX", 0, 0, 0, 31, 0, 0, 0, 2, 8, 41
+"c:\Users\admin\Documents\code\nike-app\src\sections\Services.jsx", "JavaScript JSX", 0, 0, 0, 20, 0, 0, 0, 0, 3, 23
+"c:\Users\admin\Documents\code\nike-app\src\sections\SpecialOffer.jsx", "JavaScript JSX", 0, 0, 0, 42, 0, 0, 0, 4, 10, 56
+"c:\Users\admin\Documents\code\nike-app\src\sections\export.jsx", "JavaScript JSX", 0, 0, 0, 20, 0, 0, 0, 0, 1, 21
+"c:\Users\admin\Documents\code\nike-app\vite.config.js", "JavaScript", 0, 10, 0, 0, 0, 0, 0, 1, 2, 13
+"Total", "-", 84444, 241, 2, 1495, 83, 19, 387, 103, 474, 87248

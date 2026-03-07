@@ -5,9 +5,18 @@ import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
 
 
-const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
+const RelatedProducts = ({sneakers, brand, category, id, urlBrand, setFavourites, favourites}) => {
 
     const scrollRef = useRef(null);
+    const isRelated = true;
+
+    // const isAtStart = () => {
+    //     return scrollRef.current.scrollLeft === 0;
+    // };
+
+    // const isAtEnd = () => {
+    //     return scrollRef.current.scrollLeft === scrollRef.current.scrollWidth;
+    // };
 
     const scroll = (x) => {
     scrollRef.current.scrollBy({
@@ -31,7 +40,7 @@ const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
            {/* Left arrow */}
             <button
                 onClick={() => scroll(-1)}
-                className="
+                className={`"
                 hidden sm:flex
                 absolute left-0 top-1/2 -translate-y-1/2
                 z-10
@@ -40,7 +49,8 @@ const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
                 p-2
                 shadow
                 cursor-pointer
-            "
+            `}
+
             >
                 <GoArrowLeft />
 
@@ -58,7 +68,7 @@ const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
                     to={urlBrand ? `/nike-app/brands/${urlBrand}/${product.id}` : `/nike-app/products/${product.id}`} 
                     className="shrink-0 snap-start w-1/2 sm:w-1/3 md:w-1/4"
                 >
-                    <ProductCard sneaker={product} />
+                    <ProductCard sneaker={product} relatedProductId={product.id} isRelated={isRelated} setFavourites={setFavourites} favourites={favourites}/>
                 </Link>
             ))
             }
@@ -67,7 +77,7 @@ const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
             {/* Right arrow */}
             <button
             onClick={() => scroll(1)}
-            className="
+            className={`
                 hidden sm:flex
                 absolute right-0 top-1/2 -translate-y-1/2
                 z-10
@@ -76,7 +86,7 @@ const RelatedProducts = ({sneakers, brand, category, id, urlBrand}) => {
                 p-2
                 shadow
                 cursor-pointer
-            "
+            `}
             >
                 <GoArrowRight />
 

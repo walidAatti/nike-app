@@ -32,7 +32,7 @@ const SpecialOffer = () => {
         <div className="flex gap-4 max-sm:items-center">
 
             {/* shop now */}
-            <Link to={'/products'}
+            <Link to={'/nike-app/products'}
               className="w-fit whitespace-nowrap flex gap-4 rounded-full py-3 px-6 max-sm:px-7 text-lg 
                       text-white font-montserrat bg-coral-red hover:bg-[#e75747] transition-colors">
                 Shop now
@@ -40,11 +40,11 @@ const SpecialOffer = () => {
             </Link>
 
             {/* learn more */}
-            <Link to={'/products'}
+            <a href="#contact-us"
               className="w-fit whitespace-nowrap rounded-full py-3 px-6 max-sm:px-7 text-lg font-montserrat border
                         border-slate-gray hover:outline outline-gray-500">
                 Learn More
-            </Link>
+            </a>
 
         </div>
 

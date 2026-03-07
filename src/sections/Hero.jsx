@@ -7,6 +7,8 @@ import { Link } from "react-router-dom"
 const Hero = () => {
     const [currentShoe, setShoe] = useState(bigShoe1);
 
+    const [start, setstart] = useState(0)
+
 
     return (
         <section 

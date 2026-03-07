@@ -2,10 +2,10 @@ import { facebook, instagram, shieldTick, support, truckFast, twitter } from "..
 import { bigShoe1, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
 
 export const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about-us", label: "About Us" },
-    { href: "#products", label: "Products" },
-    { href: "#contact-us", label: "Contact Us" },
+    { href: "/nike-app/", label: "Home" },
+    { href: "/nike-app/products", label: "Products" },
+    { href: "/nike-app/brands", label: "Brands" },
+    { href: "/nike-app/favorites", label: "Favorites" },
 ];
 
 export const shoes = [
@@ -90,24 +90,24 @@ export const footerLinks = [
     {
         title: "Products",
         links: [
-            { name: "Air Force 1", link: "/" },
-            { name: "Air Max 1", link: "/" },
-            { name: "Air Jordan 1", link: "/" },
-            { name: "Air Force 2", link: "/" },
-            { name: "Nike Waffle Racer", link: "/" },
-            { name: "Nike Cortez", link: "/" },
+            { name: "Air Force 1", link: "/nike-app/products" },
+            { name: "Air Max 1", link: "/nike-app/products" },
+            { name: "Air Jordan 1", link: "/nike-app/products" },
+            { name: "Air Force 2", link: "/nike-app/products"},
+            { name: "Nike Waffle Racer", link: "/nike-app/products" },
+            { name: "Nike Cortez", link: "/nike-app/products" },
         ],
     },
     {
         title: "Help",
         links: [
-            { name: "About us", link: "/" },
-            { name: "FAQs", link: "/" },
-            { name: "How it works", link: "/" },
-            { name: "Privacy policy", link: "/" },
-            { name: "Payment policy", link: "/" },
+            { name: "About us", link: "#about-us" },
+            { name: "FAQs", link: "/nike-app/" },
+            { name: "How it works", link: "/nike-app/" },
+            { name: "Privacy policy", link: "/nike-app/" },
+            { name: "Payment policy", link: "/nike-app/" },
         ],
-    },
+    }, 
     {
         title: "Get in touch",
         links: [

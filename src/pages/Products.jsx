@@ -1,5 +1,5 @@
 import '../index.css';
-import { useState, useEffect } from "react"
+import { useState, useEffect} from "react";
 import NavSearch from "../components/NavSearch";
 import FilterSideBar from '../components/FilterSideBar';
 import { Link, useParams, useSearchParams } from "react-router-dom";
@@ -8,24 +8,17 @@ import Pagination from '../components/Pagination';
 import Loader from '../components/Loader';
 import ProductList from '../components/ProductList';
 
-const Products = ({sneakers, setSneakers, originalSneakers}) => {
+const Products = ({sneakers, setSneakers, originalSneakers, favourites, setFavourites}) => {
 
     // use Search Params
-    const [searchParams, setSearchParams] = useSearchParams()
-    console.log(searchParams.get("brand"))
-
+    const [searchParams, setSearchParams] = useSearchParams();
     
     const [search, setSearch] = useState("");
     const [isPriceSorted, setIsPriceSorted] = useState(false);
     const isListProduct = true;
-    
-    // scroll to top
-    useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
 
     // pagination 
-    const ITEMS_PAGE = 50
+    const ITEMS_PAGE = 10
     const pages = Math.ceil(sneakers.length / ITEMS_PAGE);
     const [currentPage, setCurrentPage] = useState(1);
     const startIndex = (currentPage - 1) * ITEMS_PAGE;
@@ -50,16 +43,16 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
     const brandsParam = searchParams.getAll("brand") ;
     const categoriesParam = searchParams.getAll("category") ;
     const genderParam = searchParams.get("gender");
-    console.log(genderParam)
+    const minPriceParam = parseInt(searchParams.get("minPrice")) || 0;
+    const maxPriceParam = parseInt(searchParams.get("maxPrice")) || 5000;
         
     const filteredSneakers = filteredBrandSneakers.filter(sneaker => sneaker.title.toLowerCase().includes(search.trim().toLowerCase()))
                                                 .filter(sneaker => brandsParam.length === 0 || brandsParam.includes(sneaker.brand))
                                                 .filter(sneaker => categoriesParam.length === 0 || categoriesParam.includes(sneaker.breadcrumbs[1]?.value))
                                                 .filter(sneaker => (!genderParam || genderParam == "All") || sneaker.gender === genderParam)
-
-    
-    
-    
+                                                .filter(sneaker=>  
+                                                                    sneaker.avg_price >= minPriceParam && sneaker.avg_price <= maxPriceParam                                                      
+                                                )
 
     return (
         <div className="2xl:container mx-auto">
@@ -116,8 +109,8 @@ const Products = ({sneakers, setSneakers, originalSneakers}) => {
                     </div>
 
 
-                    
-                    <ProductList sneakers={filteredSneakers} brand={brand} isPriceSorted={isPriceSorted}/>
+
+                    <ProductList sneakers={filteredSneakers} brand={brand} isPriceSorted={isPriceSorted} favourites={favourites} setFavourites={setFavourites}/>
 
 
                     {/* Pagination */}
