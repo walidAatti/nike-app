@@ -26,6 +26,7 @@
     /* Font Families */
     --font-palanquin: "Palanquin", sans-serif;
     --font-montserrat: "Montserrat", sans-serif;
+    --font-boldonse: "Boldonse", sans-serif;
 
     /* Colors */
     --color-primary: #ECEEFF;
@@ -38,8 +39,8 @@
     --shadow-3xl: 0 10px 40px rgba(0, 0, 0, 0.1);
 
     /* Background Images */
-    --bg-hero: url('assets/images/collection-background.svg');
-    --bg-card: url('assets/images/thumbnail-background.svg');
+    --bg-home: url('assets/new images/hero.webp');
+    --bg-card: url('../assets/new images/photo_card.webp');
 
     /* Breakpoints */
     --screen-wide: 1440px;

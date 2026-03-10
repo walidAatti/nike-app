@@ -1,9 +1,14 @@
 import '../index.css'
-import {Nav, PopularProducts, QualityProducts, Services, SpecialOffer, CustomersReviews, NewsLetter, Footer, Hero} from '../sections/export';
 import NavSearch from '../components/NavSearch';
 import ScrollTopButton from '../components/ScrollTopButton';
+import { Hero, Footer, Categories, PopularProducts, CardPhoto, Brands, NikeBrand, TravisScott  } from '../sections/export';
+import photoCard from '../assets/new images/photo_card.webp'
+import photoCard2 from '../assets/new images/photo_card2.webp'
+import lakersMobile from '../assets/new images/lakers_mobile.webp'
+import airmax95Mobile from '../assets/new images/airmax95_mobile.webp'
 
-function Home() {
+
+function Home({sneakers}) {
 
   const isHome = true
 
@@ -14,39 +19,41 @@ function Home() {
       
       <NavSearch isHome={isHome} />
 
-      <section className='padding-b' id='home'> {/* xl:padding-l wide:padding-r */}
+      <section className='py-15'>
         <Hero />
       </section>
 
-      <section className='padding ' id="products">
-        <PopularProducts />
+      <section className='padding-x'>
+        <PopularProducts sneakers={sneakers}/>
       </section>
 
-      <section className='padding '>
-        <QualityProducts />
+      <section className='padding-x py-15'>
+        <Categories />
       </section>
 
-      <section className='padding '>
-        <Services />
+      <section>
+        <CardPhoto photo={photoCard2} photoMobile={airmax95Mobile} />
       </section>
     
-      <section className='padding '>
-        <SpecialOffer />
+      <section className='py-15 padding-x'>
+        <Brands />
       </section>
 
-      <section className='padding bg-pale-blue ' id='about-us'>
-        <CustomersReviews />
+      <section className='padding-x'>
+          <TravisScott sneakers={sneakers}/>
       </section>
 
-
-      <section className='padding-x py-16 sm:py-32 '>
-        <NewsLetter />
+      <section className='py-15'>
+          <CardPhoto photo={photoCard} photoMobile={lakersMobile} />
       </section>
 
-      <section className='bg-black pb-8 padding-t padding-x ' id='contact-us'>
+      <section className='padding-x pb-15'>
+          <NikeBrand sneakers={sneakers}/>
+      </section>    
+
+      <section className='padding bg-black'>
         <Footer />
       </section>
-    
 
     </main>
   )

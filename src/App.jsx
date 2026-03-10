@@ -47,7 +47,7 @@ const App = () => {
     <>
         <ScrollToTop />
         <Routes>
-            <Route path="/nike-app/" element ={<Home />} />
+            <Route path="/nike-app/" element ={<Home sneakers={sneakers}/>} />
             <Route path="/nike-app/products" element ={<Products sneakers={sneakers} originalSneakers={originalSneakers} 
                                                                 setSneakers={setSneakers} favourites={favourites} 
                                                                 setFavourites={setFavourites}/>} 
@@ -57,7 +57,7 @@ const App = () => {
             <Route path="/nike-app/brands/:brand" element ={<Products sneakers={sneakers} originalSneakers={originalSneakers} 
                                                                         setSneakers={setSneakers} favourites={favourites} setFavourites={setFavourites}/>} 
             />
-            <Route path="/nike-app/brands/:brand/:id" element ={<ProductDetail sneakers={sneakers}/>} />
+            <Route path="/nike-app/brands/:brand/:id" element ={<ProductDetail sneakers={sneakers} favourites={favourites} setFavourites={setFavourites}/>} />
             <Route path="/nike-app/favorites" element ={<Favorites favourites={favourites} setFavourites={setFavourites} sneakers={sneakers}/>} />
         </Routes>
     </>

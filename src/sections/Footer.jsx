@@ -8,11 +8,11 @@ const Footer = () => {
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-end max-xl:justify-items-start max-xl:gap-y-15 max-sm:gap-x-5">
 
             <div className="space-y-5 max-xl:col-span-full">
-                <img src={footerLogo} alt="nike logo" className="w-37.5"/>
+                <p className='font-boldonse text-white text-3xl'>SNEAKER</p>
                 <p 
                     className="text-gray-300 leading-7 font-montserrat"
                 >
-                    Get shoes ready for the new term at your nearest Nike store. 
+                    Get shoes ready for the new term at your nearest Sneaker store. 
                     Find Your perfect Size In Store. Get Rewards
                 </p>
             

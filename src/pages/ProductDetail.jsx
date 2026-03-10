@@ -1,10 +1,9 @@
 import '../index.css';
 import { Link, useParams } from "react-router-dom";
 import Loader from '../components/Loader';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Footer from '../sections/Footer';
 import RelatedProducts from '../components/RelatedProducts';
-import NewsLetter from '../sections/NewsLetter';
 import { IoIosArrowUp } from "react-icons/io";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
@@ -264,10 +263,6 @@ const ProductDetail = ({sneakers, favourites = [], setFavourites}) => {
                 <RelatedProducts id={id} brand={sneaker.brand} urlBrand={brand} category={sneaker.category} 
                                 sneakers={sneakers} setFavourites={setFavourites} favourites={favourites}
                 />
-            </section>
-
-            <section className='padding '>
-                <NewsLetter />
             </section>
 
             <section className='bg-black padding'>

@@ -14,11 +14,11 @@ const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage, isDet
     const [ShowSearch, setShowSearch] = useState(false)
 
     return (
-        <header className={`p-3 sm:px-16 py-4 flex max-sm:gap-2 gap-7 items-center justify-between border-b border-b-gray-300
-                        ${isHome ? "absolute z-10 w-full": "static"}`}
+        <header className={`2xl:container w-full p-3 sm:px-16 py-4 flex max-sm:gap-2 gap-7 items-center justify-between border-b border-b-gray-300
+                        ${isHome ? "fixed z-10 bg-white ": "static"}`}
         >
-            <Link to={"/nike-app/"} className={`${ShowSearch ? "max-sm:hidden" : 'inline'}`}>
-                <img src= {headerLogo} alt="logo"/>
+            <Link to={"/nike-app/"} className={`${ShowSearch ? "max-sm:hidden" : 'block'}`}>
+                <p className='font-boldonse text-lg'>SNEAKER</p>
             </Link>
 
                     <SearchBar search= {search} setSearch={setSearch} isListProduct={isListProduct} 

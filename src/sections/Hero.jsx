@@ -1,72 +1,22 @@
-import { useState } from "react"
-import { arrowRight } from "../assets/icons"
-import { bigShoe1 } from "../assets/images"
-import { shoes, statistics } from "../constants"
-import { Link } from "react-router-dom"
+import hero from '../assets/new images/hero.webp'
+import jordanCollection from '../assets/new images/jordan_collection.webp'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
-    const [currentShoe, setShoe] = useState(bigShoe1);
-
-    const [start, setstart] = useState(0)
-
-
     return (
-        <section 
-        className="flex flex-col gap-10 justify-center min-h-screen lg:flex-row">
-            {/* First Section */}
-            <div className="xl:w-2/5 padding-x flex flex-col items-start justify-center pt-28">
-                <p className=" font-montserrat text-coral-red text-xl">Our Summer Collections</p>
-                <div className="capitalize text-8xl font-palanquin font-bold max-sm:text-7xl relative z-1 mt-11 lg:leading-30 max-lg:leading-25 max-md:leading-20">
-                    <span className="relative z-1 xl:whitespace-nowrap pr-10 py-4 xl:bg-white">The New arrival </span>
-                    <br />
-                    <span className="text-coral-red">Nike</span> shoes
-                </div>
-
-                <p 
-                    className="mt-6 font-montserrat text-xl text-slate-gray tracking-wide leading-9">
-                    Discover stylish Nike arrivals, quality comfort, 
-                    and innovation for your active life</p>
-
-                <Link to="/nike-app/products" 
-                    className="mt-10 rounded-full py-3 px-6 text-lg text-white font-montserrat bg-coral-red flex gap-4 hover:bg-[#e75747] transition-colors">
-                        Shop now
-                        <img src={arrowRight} alt="arrow" />
-                </Link>
-
-                <div className="mt-12 flex gap-15 flex-wrap">
-                    {statistics.map((stat,index) => (
-                        <div key={index}>
-                            <p className="text-4xl font-bold font-palanquin">{stat.value}</p>
-                            <p className="text-slate-gray font-montserrat leading-7">{stat.label}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Second Section */}
-            <div className="bg-hero bg-cover bg-center h-[80vh] md:h-screen flex justify-center relative items-center w-full xl:mr-16 xl:ml-5">
-                <img src={currentShoe} alt="bigshoe" className="max-sm:w-[90%] max-md:w-2/5 lg:max-h-1/2 max-sm:mb-12 "/>
-
-            {/* cards */}
-                <div className="flex gap-10 absolute p-5 -bottom-25 max-sm:-bottom-10">                               
-                {shoes.map((shoe, index) => (
-                    <div 
-                        key={index} 
-                        tabIndex={0}
-                        onClick={() => setShoe(shoe.bigShoe)} 
-                        className="bg-card bg-cover bg-center rounded-xl p-7 cursor-pointer outline-offset-1 outline-amber-600 hover:outline-3 focus:outline-3"
+        <div>
+            <div className='relative'>
+                <Link to="/nike-app/brands/Jordan">
+                    <div className='absolute bottom-8 left-8 text-[14px] font-montserrat 
+                        opacity-80 bg-white rounded-md p-2 cursor-pointer hover:opacity-70 transition duration-150'
                     >
-                        <img src={shoe.thumbnail} alt="shoe"/>
+                        Discover More
                     </div>
-                ))}
+                </Link>
+                <img src={hero} alt="Hero Background" className='hidden md:block w-full object-cover object-center '/>
+                <img src={jordanCollection} alt="Hero Background" className='block md:hidden w-full object-cover object-center '/>
             </div>
-
-            </div>
-
-            
-
-
-        </section>
+        </div>
     )
 }
 
