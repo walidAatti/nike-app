@@ -1,0 +1,33 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# The app is built with base "/nike-app/" (for GitHub Pages), but Netlify
+# serves the dist folder from the domain root. These rules map the
+# /nike-app/ URLs onto the published files.
+
+[[redirects]]
+  from = "/"
+  to = "/nike-app/"
+  status = 301
+
+[[redirects]]
+  from = "/nike-app/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/nike-app/sneakers.json"
+  to = "/sneakers.json"
+  status = 200
+
+[[redirects]]
+  from = "/nike-app/favicon.ico"
+  to = "/favicon.ico"
+  status = 200
+
+# SPA fallback so client-side routes like /nike-app/products work on refresh
+[[redirects]]
+  from = "/nike-app/*"
+  to = "/index.html"
+  status = 200
