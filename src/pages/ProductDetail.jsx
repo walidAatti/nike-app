@@ -11,12 +11,12 @@ import NavSearch from '../components/NavSearch';
 import { CgLoadbar } from "react-icons/cg";
 import { IoHeart } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
+import NotFound from './404';
 
 
-
-
-const ProductDetail = ({sneakers, favourites = [], setFavourites}) => {
+const ProductDetail = ({sneakers, favourites = [], setFavourites, isLoading}) => {
     
+    // loading state
     const {brand, id} = useParams();
     const [currentIndex, setCurrentIndex] = useState(0);
     const isDetailPage = true;
@@ -42,11 +42,12 @@ const ProductDetail = ({sneakers, favourites = [], setFavourites}) => {
     const sneaker = sneakers.find(snk => snk.id == id);
 
     // loader condition
-    if (!sneaker) {
+    if (isLoading) {
         return <Loader />
     }
-    
-    const price = sneaker.avg_price.toFixed(2)
+    if (!sneaker) {
+        return <NotFound />
+    }
 
     // image Carousel
     const sneakerPhotos = [sneaker.gallery_360[0],sneaker.gallery_360[4],sneaker.gallery_360[25],sneaker.gallery_360[19]];
@@ -55,7 +56,7 @@ const ProductDetail = ({sneakers, favourites = [], setFavourites}) => {
     const next = () => setCurrentIndex(prev => prev < sneakerPhotos.length - 1 ? prev + 1 : prev = 0);
     const prev = () => setCurrentIndex(prev => prev > 0 ? prev - 1 : prev = sneakerPhotos.length - 1);
 
-
+    const price = sneaker.avg_price.toFixed(2)
 
     return (
         <div className="2xl:container mx-auto">

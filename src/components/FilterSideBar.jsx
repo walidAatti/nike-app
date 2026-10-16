@@ -126,7 +126,6 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
                             </p>
                     </div>
                 </div>
-
                 
                 <ul className={`${!isBrandOpened && "hidden"}`}>
                     {
@@ -201,12 +200,7 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
                                 checked={genderParam === gender}
                                 onChange={() => {
                                     const params = new URLSearchParams(searchParams);
-                                    if (genderParam === gender) {
-                                        params.delete("gender")
-                                    }
-                                    else {
-                                        params.set("gender", gender)
-                                    }
+                                    params.set("gender", gender)
                                     setSearchParams(params)
                                 }}
                             />

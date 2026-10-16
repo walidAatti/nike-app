@@ -43,7 +43,7 @@ const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage, isDet
                 </button>
 
                 <button
-                    className='cursor-pointer'
+                    className={`${isHome && "lg:hidden"} cursor-pointer`}
                     onClick={() => {
                         seIsClosed(false)
                     }}
@@ -51,7 +51,7 @@ const NavSearch = ({search, setSearch, isListProduct, isHome, isBrandPage, isDet
                     <RxHamburgerMenu className='text-2xl'/>
                 </button>
             </div>
-            <HamburgerSide isClosed={isClosed} seIsClosed={seIsClosed}/>
+            <HamburgerSide  isClosed={isClosed} seIsClosed={seIsClosed}/>
         </header>
     )
 }

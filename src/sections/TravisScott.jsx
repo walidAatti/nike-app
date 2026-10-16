@@ -4,9 +4,9 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 
 const TravisScott = ({sneakers}) => {
 
-  const travisScottSneakers = sneakers.filter(sneaker => sneaker.title.includes("Travis")).slice(0, 4)
+    const travisScottSneakers = sneakers.filter(sneaker => sneaker.title.includes("Travis")).slice(0, 4)
 
-  return (
+    return (
         <div>
             <div className="flex items-center justify-between mb-3">
                 <h2 className='font-bold text-xl font-palanquin'>Travis Scott</h2>

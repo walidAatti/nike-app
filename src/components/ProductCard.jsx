@@ -37,7 +37,13 @@ const ProductCard = ({ sneaker, isPriceSorted, favourites = [], setFavourites, r
                 className={`absolute top-2 right-2 text-xl text-coral-red cursor-pointer`}>
                     {isFavourite ? <IoHeart/> : <IoMdHeartEmpty/>}
             </button>
-            <img src={sneaker.image} alt="sneaker image" width={400} className="w-4/5 mx-auto"/>
+            {/* image checking */}
+            { sneaker.image ?
+                <img src={sneaker.image} alt="sneaker image" width={400} className="w-4/5 mx-auto"/>
+            :
+                <span>photo not available</span>
+            }
+            
             <div className="p-4 space-y-1">
                 <p className="line-clamp-1 font-montserrat max-sm:text-[16px]">{sneaker.title }</p>
                 <p className="text-sm font-palanquin text-slate-gray line-clamp-1">{sneaker.brand}</p>

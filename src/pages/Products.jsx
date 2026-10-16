@@ -17,13 +17,7 @@ const Products = ({sneakers, setSneakers, originalSneakers, favourites, setFavou
     const [isPriceSorted, setIsPriceSorted] = useState(false);
     const isListProduct = true;
 
-    // pagination 
-    const ITEMS_PAGE = 10
-    const pages = Math.ceil(sneakers.length / ITEMS_PAGE);
-    const [currentPage, setCurrentPage] = useState(1);
-    const startIndex = (currentPage - 1) * ITEMS_PAGE;
-    const lastIndex = startIndex + ITEMS_PAGE;
-    const slicedSneakers = sneakers.slice(startIndex, lastIndex);
+    
 
     // Brands
     const {brand} = useParams();
@@ -54,12 +48,26 @@ const Products = ({sneakers, setSneakers, originalSneakers, favourites, setFavou
                                                                     sneaker.avg_price >= minPriceParam && sneaker.avg_price <= maxPriceParam                                                      
                                                 )
 
+    // pagination
+    const ITEMS_PAGE = 30;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const pages = Math.ceil(filteredSneakers.length / ITEMS_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PAGE;
+    const lastIndex = startIndex + ITEMS_PAGE;
+
+    // resetting pagination
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [search, searchParams, brand]);
+
+    const paginatedSneakers = filteredSneakers.slice(startIndex, lastIndex);
     return (
         <div className="2xl:container mx-auto">
 
             {/* Nav search */}
             <NavSearch search={search} setSearch={setSearch} isListProduct={isListProduct}/>
-
+            {/* switch filteredSneakers with paginatedSneakers */}
                 {
                 sneakers.length !== 0 ?
 
@@ -72,7 +80,7 @@ const Products = ({sneakers, setSneakers, originalSneakers, favourites, setFavou
                         />
                     </section>
                 
-                <div className="md:col-span-2 lg:col-span-4 grid gap-2 md:gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-16 sm:py-12 relative">
+                <div className="md:col-span-2 lg:col-span-4 self-start grid gap-2 md:gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-16 sm:py-12 relative">
                     {/* Sort */}
                     <div className='absolute top-0 flex justify-between w-full items-end max-sm:items-start gap-1 max-sm:flex-col'>
 
@@ -98,27 +106,28 @@ const Products = ({sneakers, setSneakers, originalSneakers, favourites, setFavou
                         {/* sorting */}
                         <div className='flex max-sm:flex-row-reverse items-center gap-2'>
 
-                            {(search.trim() || filteredSneakers.length < originalSneakers.length || genderParam == "All") && <p 
+                            {(search.trim() || paginatedSneakers.length < originalSneakers.length || genderParam == "All") && <p 
                                                 className=' font-montserrat text-sm text-slate-gray'>
                                                     results:<span className='font-bold'> {filteredSneakers.length}</span>
                                             </p>
                             }
 
-                            <Sorting sneakers={filteredSneakers} setSneakers={setSneakers} originalSneakers={filteredOriginalSneakers}  setIsPriceSorted={setIsPriceSorted}/>
+                            <Sorting sneakers={paginatedSneakers} setSneakers={setSneakers} originalSneakers={filteredOriginalSneakers}  setIsPriceSorted={setIsPriceSorted}/>
                         </div>
                     </div>
 
 
 
-                    <ProductList sneakers={filteredSneakers} brand={brand} isPriceSorted={isPriceSorted} favourites={favourites} setFavourites={setFavourites}/>
+                    <ProductList sneakers={paginatedSneakers} brand={brand} isPriceSorted={isPriceSorted} favourites={favourites} setFavourites={setFavourites}/>
 
 
                     {/* Pagination */}
-                    {/* <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/> */}
+                    {filteredSneakers.length > ITEMS_PAGE  && (
+                        <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                    )}
 
                 </div>
-            </div>
-
+            </div>            
                 :
                 <Loader />
             }
