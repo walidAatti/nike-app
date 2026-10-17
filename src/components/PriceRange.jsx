@@ -2,7 +2,7 @@ import { IoIosArrowUp } from "react-icons/io";
 
 const PriceRange = ({minPrice, setMinPrice, maxPrice, setMaxPrice, isPriceOpened, setIsPriceOpened}) => {
     return (
-        <div className="border-b border-gray-300 pb-3">
+        <div className=" border-gray-300 pb-3">
             {/* Title */}
             <div className='font-bold font-montserrat pb-1 flex justify-between items-center'>
                 <p className='font-bold font-montserrat'>Price Range</p>
@@ -53,10 +53,6 @@ const PriceRange = ({minPrice, setMinPrice, maxPrice, setMaxPrice, isPriceOpened
                     />
                 </div>
 
-                {/* Display Range */}
-                <div className="pt-2 text-sm text-slate-gray">
-                    ${minPrice} - ${maxPrice}
-                </div>
             </div>
         </div>
     )

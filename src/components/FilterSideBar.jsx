@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import PriceRange from "./PriceRange";
+import { RiResetLeftFill } from "react-icons/ri";
 
 const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand}) => {
 
 
-    const [isCategoryOpened, setIsCategoryOpened] = useState(true);
+    const [isCategoryOpened, setIsCategoryOpened] = useState(false);
     const [isBrandOpened, setIsBrandOpened] = useState(true);
-    const [isGenderOpened, setIsGenderOpened] = useState(true);
-    const [isPriceOpened, setIsPriceOpened] = useState(true);
+    const [isGenderOpened, setIsGenderOpened] = useState(false);
+    const [isPriceOpened, setIsPriceOpened] = useState(false);
     // range slider
     const MAX = 5000
     const MIN = 0
@@ -42,9 +43,9 @@ const FilterSideBar = ({filteredSneakers, searchParams, setSearchParams, brand})
 
             {/* testing */}
             <button 
-                className="border border-gray-300 rounded-lg p-2 cursor-pointer"
+                className="border flex items-center gap-x-1.5 text-gray-600 bg-gray-50 hover:bg-gray-100 border-gray-200 rounded-lg p-2 px-4 font-montserrat text-sm cursor-pointer"
                 onClick={() => setSearchParams({})}>
-                Reset Filters
+                RESET <span><RiResetLeftFill /></span>
             </button>
 
             {/* CATEGORIES Filter */}

@@ -7,6 +7,7 @@ import Sorting from "../components/Sorting";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import ProductList from "../components/ProductList";
+import FilterButton from "../components/FilterButton";
 
 const Products = ({
   sneakers,
@@ -68,7 +69,6 @@ const Products = ({
   // pagination
   const ITEMS_PAGE = 30;
   const currentPage = pageParam;
-  console.log(currentPage)
   const pages = Math.ceil(filteredSneakers.length / ITEMS_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PAGE;
   const lastIndex = startIndex + ITEMS_PAGE;
@@ -100,10 +100,21 @@ const Products = ({
       />
       {/* switch filteredSneakers with paginatedSneakers */}
       {sneakers.length !== 0 ? (
-        <div className="px-2 sm:px-16 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-5">
+        <div className="px-2 sm:px-16 py-6 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-6 lg:grid-cols-5">
           {/* Filter Sidebar */}
-          <section>
+          <section className="hidden md:block">
             <FilterSideBar
+              filteredSneakers={originalSneakers}
+              setSneakers={setSneakers}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+              brand={brand}
+            />
+          </section>
+
+          {/* Mobile Filter Button */}
+          <section className="md:hidden">
+            <FilterButton
               filteredSneakers={originalSneakers}
               setSneakers={setSneakers}
               searchParams={searchParams}
@@ -116,7 +127,7 @@ const Products = ({
             {/* Sort */}
             <div className="absolute top-0 flex justify-between w-full items-end max-sm:items-start gap-1 max-sm:flex-col">
               {/* Page Links */}
-              <div className="font-palanquin text-sm text-slate-gray ">
+              <div className="font-palanquin text-slate-gray ">
                 <Link
                   to={`/`}
                   className="hover:underline underline-offset-[1.5px]"
@@ -172,6 +183,8 @@ const Products = ({
                   setIsPriceSorted={setIsPriceSorted}
                 />
               </div>
+
+              {/*  */}
             </div>
 
             <ProductList

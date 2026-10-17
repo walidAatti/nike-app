@@ -10,7 +10,7 @@ const NikeBrand = ({ sneakers }) => {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="font-bold text-3xl font-montserrat">Nike</h2>
+        <h2 className="font-bold text-xl md:text-3xl font-montserrat">Nike</h2>
         <Link
           to="/brands/Nike"
           className="flex items-center gap-1 text-slate-gray font-palanquin hover:underline underline-offset-2 hover:text-black"
