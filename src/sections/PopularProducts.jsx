@@ -10,7 +10,7 @@ const PopularProducts = ({ sneakers }) => {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="font-bold text-xl font-palanquin">Popular Products</h2>
+        <h2 className="font-bold text-3xl font-montserrat">Popular Products</h2>
         <Link
           to="/products"
           className="flex items-center gap-1 text-slate-gray font-palanquin hover:underline underline-offset-2 hover:text-black"

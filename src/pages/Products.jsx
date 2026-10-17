@@ -39,6 +39,8 @@ const Products = ({
   const genderParam = searchParams.get("gender");
   const minPriceParam = parseInt(searchParams.get("minPrice")) || 0;
   const maxPriceParam = parseInt(searchParams.get("maxPrice")) || 5000;
+  // pagination page params
+  const pageParam = parseInt(searchParams.get("page")) || 1;
 
   const filteredSneakers = filteredBrandSneakers
     .filter((sneaker) =>
@@ -65,16 +67,27 @@ const Products = ({
 
   // pagination
   const ITEMS_PAGE = 30;
-  const [currentPage, setCurrentPage] = useState(1);
-
+  const currentPage = pageParam;
+  console.log(currentPage)
   const pages = Math.ceil(filteredSneakers.length / ITEMS_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PAGE;
   const lastIndex = startIndex + ITEMS_PAGE;
 
-  // resetting pagination
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search, searchParams, brand]);
+
+    // change page
+    const changePage = (page) => {
+    setSearchParams((prev) => {
+        const params = new URLSearchParams(prev);
+
+          if (page === 1) {
+              params.delete("page");
+          } else {
+              params.set("page", String(page));
+          }
+
+          return params;
+        });
+    };
 
   const paginatedSneakers = filteredSneakers.slice(startIndex, lastIndex);
   return (
@@ -174,7 +187,7 @@ const Products = ({
               <Pagination
                 pages={pages}
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={changePage}
               />
             )}
           </div>

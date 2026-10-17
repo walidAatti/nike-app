@@ -5,8 +5,8 @@ const Categories = () => {
   const categories = ["Lifestyle", "Performance", "Boots", "Slides & Sandals"];
   return (
     <div>
-      <div className="flex items-center justify-between mb-3">
-        <h2 className="font-bold text-xl font-palanquin">Shop by Category</h2>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-bold text-3xl font-montserrat">Shop by Category</h2>
         <Link
           to="/products"
           className="flex items-center gap-1 text-slate-gray font-palanquin hover:underline underline-offset-2 hover:text-black"

@@ -28,7 +28,7 @@ const App = () => {
       try {
         const response = await fetch("/sneakers.json");
         const snkrs = await response.json();
-        setSneakers(snkrs.slice(0, 300));
+        setSneakers(snkrs.slice(0, 600));
         setOriginalSneakers(snkrs.slice(0, 300));
       } catch (error) {
         console.log("The error is: " + error);
@@ -44,7 +44,7 @@ const App = () => {
     <>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home sneakers={sneakers} />} />
+        <Route path="/" element={<Home sneakers={originalSneakers} />} />
         <Route
           path="/products"
           element={

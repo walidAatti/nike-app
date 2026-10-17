@@ -10,14 +10,15 @@ const CardPhoto = ({ photo, photoMobile }) => {
   return (
     <div>
       <div className="relative">
-        <Link to={`/products/${photo_id}`}>
-          <div
+        <Link to={`/products/${photo_id}`} className="group">
+        
+          {/* <div
             className="absolute bottom-8 left-8 text-[14px] font-montserrat 
                     opacity-80  bg-white rounded-md p-2 cursor-pointer hover:opacity-70 transition duration-150"
           >
             See Details
-          </div>
-        </Link>
+          </div> */}
+        
 
         <div>
           <img
@@ -31,6 +32,13 @@ const CardPhoto = ({ photo, photoMobile }) => {
             className="block md:hidden w-full object-cover object-center"
           />
         </div>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/0 transition-colors 
+          duration-300 group-hover:bg-black/15" 
+          />
+
+        </Link>
       </div>
     </div>
   );

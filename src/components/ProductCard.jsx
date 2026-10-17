@@ -1,11 +1,14 @@
 import { IoHeart } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { MdOutlineImageNotSupported } from "react-icons/md";
 
 
 const ProductCard = ({ sneaker, isPriceSorted, favourites = [], setFavourites, relatedProductId, isRelated}) => {
 
     const isFavourite = favourites.includes(sneaker.id)
-
+    // image state
+    const fallbackImage = "https://placehold.co/400x400/FFFFFF/9CA3AF.png?text=Image+Unavailable";
     // toggle favorite
     const toggleFavorite = sneaker => {
         if (favourites.find(favourite => favourite === sneaker.id)) {
@@ -37,12 +40,19 @@ const ProductCard = ({ sneaker, isPriceSorted, favourites = [], setFavourites, r
                 className={`absolute top-2 right-2 text-xl text-coral-red cursor-pointer`}>
                     {isFavourite ? <IoHeart/> : <IoMdHeartEmpty/>}
             </button>
-            {/* image checking */}
-            { sneaker.image ?
-                <img src={sneaker.image} alt="sneaker image" width={400} className="w-4/5 mx-auto"/>
-            :
-                <span>photo not available</span>
-            }
+            
+            {/* image fallback */}
+            <div className="h-50 flex items-center justify-center">
+                <img
+                    src={sneaker.image || fallbackImage}
+                    alt={sneaker.title}
+                    className="w-4/5 h-full object-contain"
+                    onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = fallbackImage;
+                    }}
+                />
+            </div>
             
             <div className="p-4 space-y-1">
                 <p className="line-clamp-1 font-montserrat max-sm:text-[16px]">{sneaker.title }</p>

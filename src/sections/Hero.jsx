@@ -6,24 +6,29 @@ const Hero = () => {
   return (
     <div>
       <div className="relative">
-        <Link to="/brands/Jordan">
-          <div
+        <Link to="/brands/Jordan" className="group">
+
+          {/* <div
             className="absolute bottom-8 left-8 text-[14px] font-montserrat 
                         opacity-80 bg-white rounded-md p-2 cursor-pointer hover:opacity-70 transition duration-150"
           >
             Discover More
-          </div>
+          </div> */}
+        
+          <img
+            src={hero}
+            alt="Hero Background"
+            className="hidden md:block w-full object-cover object-center"
+          />
+          <img
+            src={jordanCollection}
+            alt="Hero Background"
+            className="block md:hidden w-full object-cover object-center"
+          />
+
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/15" />
         </Link>
-        <img
-          src={hero}
-          alt="Hero Background"
-          className="hidden md:block w-full object-cover object-center "
-        />
-        <img
-          src={jordanCollection}
-          alt="Hero Background"
-          className="block md:hidden w-full object-cover object-center "
-        />
       </div>
     </div>
   );

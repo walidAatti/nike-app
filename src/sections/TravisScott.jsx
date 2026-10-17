@@ -10,7 +10,7 @@ const TravisScott = ({ sneakers }) => {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="font-bold text-xl font-palanquin">Travis Scott</h2>
+        <h2 className="font-bold text-3xl font-montserrat">Travis Scott</h2>
         <Link
           to="/brands/Jordan"
           className="flex items-center gap-1 text-slate-gray font-palanquin hover:underline underline-offset-2 hover:text-black"
